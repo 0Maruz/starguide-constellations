@@ -10,9 +10,11 @@ import Orb from "./components/Orb";
 import "./App.css";
 
 const STAR_IDS = [
-  "01","02","03","04","05","06","07","08","09","10",
-  "11","12","13","14","15","16","17","18","19","20",
-  "21","22","23","24",
+  "aquarius","aquila","aries","auriga","bootes",
+  "cancer","canis-major","canis-minor","capricornus","cassiopeia",
+  "cygnus","gemini","leo","libra","lyra",
+  "orion","phoenix","pisces","sagittarius","scorpius",
+  "taurus","ursa-major","ursa-minor","virgo",
 ];
 
 const INTRO = {
@@ -43,8 +45,8 @@ const UI_TEXT = {
 
 function getInitialStarId() {
   const params = new URLSearchParams(window.location.search);
-  const raw = params.get("star") ?? "01";
-  return VALID_STAR_IDS.has(raw) ? raw : "01";
+  const raw = params.get("star") ?? "aquarius";
+  return VALID_STAR_IDS.has(raw) ? raw : "aquarius";
 }
 
 export default function App() {
@@ -156,7 +158,7 @@ export default function App() {
       <ConstellationSVG entry={entry} />
 
       <StarBadge
-        starId={starId}
+        index={currentIdx + 1}
         name={entry?.[lang]?.name ?? (lang === "th" ? "ไม่พบข้อมูล" : "Not found")}
         label={ui.label}
         lang={lang}
