@@ -63,6 +63,7 @@ export function useSpeech() {
     }
 
     const audio = new Audio(url);
+    audio.playbackRate = 1.15;
     audioRef.current = audio;
 
     setIsLoading(true);
