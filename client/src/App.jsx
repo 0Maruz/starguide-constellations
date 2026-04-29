@@ -1,4 +1,4 @@
-import { useRef, useState, useCallback } from "react";
+import { useRef, useState, useCallback, useEffect } from "react";
 import { constellations, VALID_STAR_IDS } from "./data/constellations";
 import { useStarfield } from "./hooks/useStarfield";
 import { useSpeech } from "./hooks/useSpeech";
@@ -6,45 +6,65 @@ import ConstellationSVG from "./components/ConstellationSVG";
 import TapZone from "./components/TapZone";
 import LangToggle from "./components/LangToggle";
 import StarBadge from "./components/StarBadge";
+import Orb from "./components/Orb";
 import "./App.css";
+
+const STAR_IDS = [
+  "01","02","03","04","05","06","07","08","09","10",
+  "11","12","13","14","15","16","17","18","19","20",
+  "21","22","23","24",
+];
+
+const INTRO = {
+  th: "สวัสดีครับ นี่คือคู่มือการ์ดสอนกลุ่มดาวสำหรับผู้พิการทางสายตา ใช้นิ้วสัมผัสพื้นผิวนูนบนการ์ดเพื่อรับรู้ตำแหน่งของดวงดาว กดปุ่มซ้ายหรือขวาเพื่อเปลี่ยนกลุ่มดาว กดสองครั้งบนหน้าจอเพื่อฟังคำบรรยายกลุ่มดาว",
+  en: "Welcome to the Constellation Guide — designed for visually impaired learners. Touch the raised card surface to feel the star positions. Use the arrow buttons to navigate between the 24 constellations. Double-tap the screen to hear the constellation description.",
+};
 
 const UI_TEXT = {
   th: {
-    label:  "กลุ่มดาว",
-    hint0:  "แตะหน้าจอเพื่อเริ่มต้น",
-    hint1:  "กดสองครั้งเพื่อฟังคำอธิบาย",
-    hint2:  "กดสองครั้งเพื่อหยุดเสียง",
+    label:   "กลุ่มดาว",
+    hint0:   "แตะหน้าจอเพื่อเริ่มต้น",
+    hint1:   "กดสองครั้งเพื่อฟังคำอธิบาย",
+    hint2:   "กดสองครั้งเพื่อหยุดเสียง",
     loading: "กำลังโหลดเสียง...",
+    prev:    "ก่อนหน้า",
+    next:    "ถัดไป",
   },
   en: {
-    label:  "Constellation",
-    hint0:  "Tap screen to begin",
-    hint1:  "Double-tap to hear description",
-    hint2:  "Double-tap to stop",
+    label:   "Constellation",
+    hint0:   "Tap screen to begin",
+    hint1:   "Double-tap to hear description",
+    hint2:   "Double-tap to stop",
     loading: "Loading audio...",
+    prev:    "Previous",
+    next:    "Next",
   },
 };
 
-const params = new URLSearchParams(window.location.search);
-const rawId  = params.get("star") ?? "01";
-const starId = VALID_STAR_IDS.has(rawId) ? rawId : "01";
+function getInitialStarId() {
+  const params = new URLSearchParams(window.location.search);
+  const raw = params.get("star") ?? "01";
+  return VALID_STAR_IDS.has(raw) ? raw : "01";
+}
 
 export default function App() {
-  const canvasRef             = useRef(null);
-  const audioUnlockedRef      = useRef(false);   // tracks whether audio context is unlocked
-  const [lang, setLang]       = useState("th");
+  const canvasRef        = useRef(null);
+  const audioUnlockedRef = useRef(false);
+  const hasPlayedIntro   = useRef(false);
+
+  const [lang, setLang]     = useState("th");
+  const [starId, setStarId] = useState(getInitialStarId);
   const [started, setStarted] = useState(false);
-  const [flash, setFlash]     = useState(null);
+  const [flash, setFlash]   = useState(null);
 
   useStarfield(canvasRef);
 
-  // ── FIX 1: correct names — stop (not cancel) · isPlaying is boolean (not fn)
   const { speak, stop, isPlaying, isLoading, error, clearError } = useSpeech();
 
-  const entry = constellations[starId];
-  const ui    = UI_TEXT[lang];
+  const entry      = constellations[starId];
+  const ui         = UI_TEXT[lang];
+  const currentIdx = STAR_IDS.indexOf(starId);
 
-  // ── FIX 2: drive hint from hook state, not local state
   const hint = !started
     ? ui.hint0
     : isLoading
@@ -53,14 +73,18 @@ export default function App() {
         ? ui.hint2
         : ui.hint1;
 
+  // Sync URL when starId changes
+  useEffect(() => {
+    const url = new URL(window.location.href);
+    url.searchParams.set("star", starId);
+    window.history.replaceState(null, "", url.toString());
+  }, [starId]);
+
   const triggerFlash = useCallback((type) => {
     setFlash(type);
     setTimeout(() => setFlash(null), 800);
   }, []);
 
-  // ── AUDIO UNLOCK ──────────────────────────────────────────────────────────
-  // Called on the very first user tap — resumes AudioContext so that
-  // subsequent audio.play() calls work even after async fetch operations.
   const unlockAudio = useCallback(() => {
     if (audioUnlockedRef.current) return;
     audioUnlockedRef.current = true;
@@ -70,89 +94,101 @@ export default function App() {
         const ctx = new Ctx();
         ctx.resume().then(() => ctx.close()).catch(() => {});
       }
-    } catch {
-      // AudioContext not available — the new Audio() pre-creation in
-      // useSpeech.js still handles most browsers without it.
-    }
+    } catch {}
   }, []);
 
+  const goTo = useCallback((id) => {
+    stop();
+    setStarId(id);
+  }, [stop]);
+
+  const goPrev = useCallback(() => {
+    const newIdx = (currentIdx - 1 + STAR_IDS.length) % STAR_IDS.length;
+    goTo(STAR_IDS[newIdx]);
+  }, [currentIdx, goTo]);
+
+  const goNext = useCallback(() => {
+    const newIdx = (currentIdx + 1) % STAR_IDS.length;
+    goTo(STAR_IDS[newIdx]);
+  }, [currentIdx, goTo]);
+
   const handleSingleTap = useCallback(() => {
-    unlockAudio(); // unlock on very first interaction
-    if (!started) { setStarted(true); return; }
+    unlockAudio();
+    if (!started) {
+      setStarted(true);
+      if (!hasPlayedIntro.current) {
+        hasPlayedIntro.current = true;
+        speak("intro", INTRO[lang], lang);
+        triggerFlash("active");
+        if (navigator.vibrate) navigator.vibrate([40, 30, 40]);
+      }
+      return;
+    }
     triggerFlash("error");
-  }, [started, unlockAudio, triggerFlash]);
+  }, [started, lang, speak, unlockAudio, triggerFlash]);
 
   const handleDoubleTap = useCallback(() => {
-    unlockAudio(); // also unlock here in case user skips single-tap
+    unlockAudio();
     if (!started) setStarted(true);
 
-    // ── FIX 1 cont: isPlaying is boolean, stop() not cancel()
     if (isPlaying || isLoading) {
       stop();
-      triggerFlash("error");                           // red = stopped
+      triggerFlash("error");
       if (navigator.vibrate) navigator.vibrate(60);
       return;
     }
 
-    // Start speaking
-    const text = entry?.[lang]?.text
-      ?? (lang === "th" ? "ไม่พบข้อมูล" : "No data available");
-
-    speak(text);
-
-    triggerFlash("active");                            // green = started
+    const text = entry?.[lang]?.text ?? (lang === "th" ? "ไม่พบข้อมูล" : "No data available");
+    speak(starId, text, lang);
+    triggerFlash("active");
     if (navigator.vibrate) navigator.vibrate([40, 30, 40]);
-
-    // ── FIX 3: window.speechSynthesis polling removed entirely.
-    //    isPlaying from the hook updates automatically when audio ends.
-    //    No interval needed.
-
-  }, [started, entry, lang, speak, stop, isPlaying, isLoading, unlockAudio, triggerFlash]);
+  }, [started, entry, lang, speak, stop, isPlaying, isLoading, unlockAudio, triggerFlash, starId]);
 
   return (
     <>
       <canvas ref={canvasRef} style={{ position: "fixed", inset: 0, zIndex: 0 }} />
+
+      <div className="nebula nebula-1" />
+      <div className="nebula nebula-2" />
+      <div className="nebula nebula-3" />
+      <div className="planet-deco" />
+
       <ConstellationSVG entry={entry} />
-      <LangToggle lang={lang} setLang={setLang} />
+
       <StarBadge
         starId={starId}
         name={entry?.[lang]?.name ?? (lang === "th" ? "ไม่พบข้อมูล" : "Not found")}
         label={ui.label}
+        lang={lang}
+        total={STAR_IDS.length}
       />
 
-      {/* ── FIX 4: show TTS errors so user knows what went wrong ─────────── */}
+      <button className="nav-btn nav-btn--prev" onClick={goPrev} aria-label={ui.prev}>
+        &#8249;
+      </button>
+      <button className="nav-btn nav-btn--next" onClick={goNext} aria-label={ui.next}>
+        &#8250;
+      </button>
+
+      <LangToggle lang={lang} setLang={setLang} />
+
       {error && (
-        <div
-          role="alert"
-          onClick={clearError}
-          style={{
-            position: "fixed",
-            bottom: "80px",
-            left: "50%",
-            transform: "translateX(-50%)",
-            zIndex: 20,
-            background: "rgba(200,50,50,0.92)",
-            color: "#fff",
-            padding: "10px 18px",
-            borderRadius: "10px",
-            fontSize: "14px",
-            maxWidth: "88vw",
-            textAlign: "center",
-            cursor: "pointer",
-            lineHeight: 1.4,
-          }}
-        >
+        <div role="alert" onClick={clearError} className="error-toast">
           ⚠️ {error}
           <br />
-          <span style={{ fontSize: "12px", opacity: 0.8 }}>(แตะเพื่อปิด)</span>
+          <span style={{ fontSize: "11px", opacity: 0.75 }}>(แตะเพื่อปิด)</span>
         </div>
       )}
 
-      <div className="instruction" aria-live="polite">
-        <p className={isPlaying ? "hint-speaking" : ""}>{hint}</p>
+      <Orb flash={flash} isPlaying={isPlaying} />
+
+      <div className="speech-bar" aria-live="polite">
+        <div className={`speech-bar-inner${isPlaying ? " speaking" : ""}`}>
+          <p className={isPlaying ? "hint-speaking" : ""}>{hint}</p>
+        </div>
       </div>
+
       <TapZone onSingleTap={handleSingleTap} onDoubleTap={handleDoubleTap} />
-      <div className={`status-dot${flash ? ` ${flash}` : ""}`} aria-hidden="true" />
     </>
   );
 }

@@ -38,9 +38,9 @@ export function useStarfield(canvasRef) {
 
       // พื้นหลังไล่สี
       const grad = ctx.createLinearGradient(0, 0, 0, H);
-      grad.addColorStop(0,   "#000005");
-      grad.addColorStop(0.5, "#00010f");
-      grad.addColorStop(1,   "#000005");
+      grad.addColorStop(0,   "#020613");
+      grad.addColorStop(0.5, "#010410");
+      grad.addColorStop(1,   "#020613");
       ctx.fillStyle = grad;
       ctx.fillRect(0, 0, W, H);
 

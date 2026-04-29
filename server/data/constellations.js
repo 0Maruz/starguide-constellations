@@ -1,5 +1,4 @@
-// Mirror of client/src/data/constellations.js — single source of truth on the server
-// In a real app, both client and server would import from a shared /packages/data package
+// Mirror of client/src/data/constellations.js — must stay in sync
 
 export const VALID_STAR_IDS = new Set([
   "01","02","03","04","05","06","07","08","09","10",
@@ -8,172 +7,197 @@ export const VALID_STAR_IDS = new Set([
 ]);
 
 export const constellations = {
+
   "01": {
-    th: { name: "นายพราน (โอไรออน)", text: "กลุ่มดาวนายพราน หรือโอไรออน เป็นกลุ่มดาวที่โดดเด่นที่สุด รู้จักในฐานะราชาแห่งท้องฟ้าฤดูหนาว มีเข็มขัดโอไรออนสามดาวเรียงกัน พร้อมดาวเบเทลจุสและดาวไรเจล" },
-    en: { name: "Orion (The Hunter)", text: "Orion is one of the most prominent constellations, known as the winter sky king. Famous for Orion's Belt — three bright stars in a row — along with the giant stars Betelgeuse and Rigel." },
-    stars: [[50,18],[38,35],[62,35],[35,50],[50,50],[65,50],[38,65],[50,65],[62,65]],
-    lines: [[0,1],[0,2],[1,3],[2,5],[3,4],[4,5],[3,6],[4,7],[5,8],[6,7],[7,8]],
-    labels: {0:"Betelgeuse",8:"Rigel"}
-  },
-  "02": {
-    th: { name: "แคสสิโอเปีย", text: "กลุ่มดาวแคสสิโอเปีย มีลักษณะเป็นรูปตัว W หรือ M อยู่ใกล้ขั้วฟ้าเหนือ" },
-    en: { name: "Cassiopeia", text: "Cassiopeia is a distinctive W-shaped constellation near the north celestial pole, visible year-round." },
-    stars: [[18,55],[33,30],[50,50],[67,28],[82,52]],
-    lines: [[0,1],[1,2],[2,3],[3,4]],
-    labels: {0:"Segin",4:"Caph"}
-  },
-  "03": {
-    th: { name: "หมีใหญ่ (เออร์ซาเมเจอร์)", text: "กลุ่มดาวหมีใหญ่มีส่วนที่เรียกว่ากระบวยใหญ่ ซึ่งใช้ชี้ไปยังดาวเหนือ" },
-    en: { name: "Ursa Major (Great Bear)", text: "Ursa Major contains the famous Big Dipper asterism. The two stars at the end of its bowl point directly to Polaris." },
-    stars: [[20,55],[35,48],[55,48],[70,40],[80,52],[72,62],[52,62],[35,62],[52,48]],
-    lines: [[0,1],[1,2],[2,3],[3,4],[4,5],[5,6],[6,2],[6,7],[1,7]],
-    labels: {0:"Dubhe",3:"Mizar",4:"Alkaid"}
-  },
-  "04": {
-    th: { name: "หมีเล็ก (เออร์ซาไมเนอร์)", text: "กลุ่มดาวหมีเล็กเป็นที่ตั้งของดาวโพลาริส หรือดาวเหนือ" },
-    en: { name: "Ursa Minor (Little Bear)", text: "Ursa Minor is home to Polaris, the North Star, sitting almost directly above Earth's north pole." },
-    stars: [[50,20],[52,38],[55,55],[62,65],[72,62],[78,50],[80,35]],
-    lines: [[0,1],[1,2],[2,3],[3,4],[4,5],[5,6]],
-    labels: {0:"Polaris",6:"Kochab"}
-  },
-  "05": {
-    th: { name: "สิงโต (เลโอ)", text: "กลุ่มดาวสิงโต มีดาวเรกูลัสเป็นดาวสว่างหลัก" },
-    en: { name: "Leo (The Lion)", text: "Leo is a prominent zodiac constellation best seen in spring. Bright Regulus marks the lion's heart." },
-    stars: [[25,72],[32,50],[42,40],[55,42],[70,52],[78,68],[60,70],[40,70]],
-    lines: [[0,1],[1,2],[2,3],[3,4],[4,5],[5,6],[6,7],[7,0],[3,6]],
-    labels: {0:"Regulus",4:"Denebola"}
-  },
-  "06": {
-    th: { name: "แมงป่อง (สกอร์เปียส)", text: "กลุ่มดาวแมงป่อง มีดาวแอนทาเรสสีแดงสว่างเด่น" },
-    en: { name: "Scorpius (The Scorpion)", text: "Scorpius is vivid and best seen from the southern hemisphere. Its brilliant red supergiant Antares marks the scorpion's heart." },
-    stars: [[50,15],[48,28],[45,42],[42,55],[38,65],[32,75],[25,82],[28,88],[38,88],[50,82],[62,75],[68,65],[65,55]],
-    lines: [[0,1],[1,2],[2,3],[3,4],[4,5],[5,6],[6,7],[7,8],[8,9],[9,10],[10,11],[11,12],[12,3]],
-    labels: {0:"Antares",6:"Shaula"}
-  },
-  "07": {
-    th: { name: "คนคู่ (เจมินี)", text: "กลุ่มดาวคนคู่มีดาวเด่นคือคาสเตอร์และพอลลักซ์" },
-    en: { name: "Gemini (The Twins)", text: "Gemini represents the mythological twins Castor and Pollux, shining best in winter and spring." },
-    stars: [[30,22],[48,22],[30,40],[48,40],[30,58],[48,58],[30,75],[48,75]],
-    lines: [[0,1],[0,2],[2,3],[2,4],[4,5],[4,6],[6,7],[1,3],[3,5],[5,7]],
-    labels: {0:"Castor",1:"Pollux"}
-  },
-  "08": {
-    th: { name: "วัว (ทอรัส)", text: "กลุ่มดาววัว มีดาวอัลเดบารันสีส้มสว่างและกระจุกดาวลูกไก่" },
-    en: { name: "Taurus (The Bull)", text: "Taurus features bright orange Aldebaran and the beautiful Pleiades star cluster — the Seven Sisters." },
-    stars: [[55,48],[38,40],[20,50],[32,62],[52,68],[70,55],[82,35],[78,62]],
-    lines: [[0,1],[1,2],[2,3],[3,4],[4,0],[0,5],[5,6],[5,7]],
-    labels: {0:"Aldebaran",6:"Elnath"}
-  },
-  "09": {
-    th: { name: "แกะ (เอรีส์)", text: "กลุ่มดาวแกะ เคยเป็นจุดเริ่มต้นของระบบพิกัดท้องฟ้าในอดีต" },
-    en: { name: "Aries (The Ram)", text: "Aries once marked the vernal equinox, making it the historical starting point of the celestial coordinate system." },
-    stars: [[22,50],[50,45],[75,55],[88,68]],
+    th: { name: "กลุ่มดาวเมษ (Aries)", text: "กลุ่มดาวเมษ หรือ กลุ่มดาวแกะ เป็นหนึ่งในกลุ่มดาวจักรราศี และเป็นดาวประจำเดือนเมษายน มีสัญลักษณ์เป็นแกะตัวผู้ ดาวที่สว่างที่สุดคือ Hamal มีพิกัดท้องฟ้า RA 2 ชั่วโมง 7 นาที และ Dec +23 องศาเหนือ ในตำนานกรีก เทพ Hermes มอบแกะวิเศษขนทองคำให้แก่ Phrixus และ Helle Zeus จึงนำแกะขึ้นประดับบนฟ้าเพื่อเป็นเกียรติและเป็นอนุสรณ์แห่งความกล้าหาญและการเสียสละ" },
+    en: { name: "Aries (The Ram)", text: "Aries the Ram is one of the zodiac constellations for April. Its brightest star is Hamal at RA 2h 7m, Dec +23°. In Greek myth, Hermes gifted a golden-fleeced ram to save Phrixus and Helle from their cruel stepmother. After fulfilling its heroic mission, Zeus honored the ram by placing it among the stars as a symbol of courage and sacrifice." },
+    stars: [[ 8,45],[32,50],[48,55],[88,52]],
     lines: [[0,1],[1,2],[2,3]],
-    labels: {0:"Hamal",1:"Sheratan"}
+    labels: { 0:"Hamal", 1:"Sheratan", 2:"Mesarthim" },
   },
+
+  "02": {
+    th: { name: "กลุ่มดาวพฤษภ (Taurus)", text: "กลุ่มดาวพฤษภ หรือ กลุ่มดาววัวกระทิง เป็นหนึ่งในกลุ่มดาวจักรราศี เป็นดาวประจำเดือนพฤษภาคม ดาวที่สว่างที่สุดคือ Aldebaran ซึ่งเป็นตาแดงของวัว มีกระจุกดาวลูกไก่ Pleiades อยู่บนบ่า มีพิกัด RA 4 ชั่วโมง 35 นาที และ Dec +16 องศาเหนือ ในตำนานกรีก Zeus แปลงกายเป็นวัวขาวเพื่อลักพาตัว Europa ลูกสาวของกษัตริย์ Agenor วัวกระทิงถูกยกขึ้นบนท้องฟ้าเป็นสัญลักษณ์แห่งความแข็งแรงและความมั่นคง" },
+    en: { name: "Taurus (The Bull)", text: "Taurus the Bull is a zodiac constellation for May. Aldebaran, the fiery orange eye, is its brightest star. The Pleiades cluster adorns the bull's shoulder. Coordinates: RA 4h 35m, Dec +16°. In Greek myth, Zeus transformed into a magnificent white bull to abduct Europa, daughter of King Agenon. The bull was immortalized in the sky as a symbol of strength and steadfastness." },
+    stars: [[10,18],[35,55],[42,62],[50,57],[38,68],[58,65],[80,20],[90,48]],
+    lines: [[0,2],[1,2],[2,3],[3,5],[5,4],[4,1],[5,6],[5,7]],
+    labels: { 5:"Aldebaran", 6:"Elnath", 0:"Pleiades" },
+  },
+
+  "03": {
+    th: { name: "กลุ่มดาวเมถุน (Gemini)", text: "กลุ่มดาวเมถุน หรือ กลุ่มดาวคนคู่ เป็นหนึ่งในกลุ่มดาวจักรราศี เป็นดาวประจำเดือนมิถุนายน ดาวสว่างที่สุดคือ Castor และ Pollux ซึ่งเป็นส่วนหัวของคนทั้งคู่ มีตำแหน่ง RA 7 ชั่วโมง 35 นาที และ Dec +28 องศาเหนือ ในตำนานกรีก Castor และ Pollux เป็นพี่น้องที่ผูกพันกันมาก แม้ Castor จะเป็นมนุษย์ธรรมดาและ Pollux เป็นบุตรของเทพ Zeus ด้วยความสงสารของเทพ Zeus จึงได้ให้ทั้งคู่อยู่ด้วยกันบนท้องฟ้า เป็นสัญลักษณ์ของความผูกพันและมิตรภาพ" },
+    en: { name: "Gemini (The Twins)", text: "Gemini the Twins is a zodiac constellation for June. Castor and Pollux — the twin bright heads — stand together at the top. Coordinates: RA 7h 35m, Dec +28°. In Greek myth, mortal Castor and divine Pollux were so devoted that Zeus united them forever in the sky, side by side as an eternal symbol of brotherhood and unbreakable friendship." },
+    stars: [[27,5],[48,8],[18,28],[40,30],[12,52],[36,50],[15,72],[34,70],[18,90],[52,82],[58,95]],
+    lines: [[0,2],[2,4],[4,6],[6,8],[1,3],[3,5],[5,7],[7,9],[9,10],[0,1],[2,3],[4,5],[6,7]],
+    labels: { 0:"Castor", 1:"Pollux", 9:"Alhena" },
+  },
+
+  "04": {
+    th: { name: "กลุ่มดาวกรกฎ (Cancer)", text: "กลุ่มดาวกรกฎ หรือ กลุ่มดาวปู เป็นหนึ่งในกลุ่มดาวจักรราศี เป็นดาวประจำเดือนกรกฎาคม มีกระจุกดาว M44 รังผึ้งอยู่ตรงกลาง มีตำแหน่ง RA 8 ชั่วโมง 42 นาที และ Dec +20 องศาเหนือ ในตำนานกรีก ปูยักษ์ถูกเทพี Hera ส่งไปช่วย Hydra ต่อสู้กับ Hercules แต่ถูกเหยียบตาย Hera ยกย่องในความจงรักภักดีของปู จึงถูกยกขึ้นเป็นกลุ่มดาวกรกฎ เพื่อเป็นเกียรติแก่ความทุ่มเทและความเสียสละ" },
+    en: { name: "Cancer (The Crab)", text: "Cancer the Crab is a zodiac constellation for July, home to the Beehive Cluster M44 at its center. Coordinates: RA 8h 42m, Dec +20°. Cancer is the faintest of the zodiac constellations. In Greek myth, Hera sent a giant crab to distract Hercules during his battle with the Hydra, but it was crushed underfoot. Hera honored its loyalty by immortalizing it among the stars." },
+    stars: [[50,50],[28,28],[68,25],[12,65],[85,60],[30,78],[72,75]],
+    lines: [[3,1],[1,0],[0,2],[2,4],[1,5],[2,6]],
+    labels: { 0:"Beehive M44", 3:"Acubens", 4:"β Tarf" },
+  },
+
+  "05": {
+    th: { name: "กลุ่มดาวสิงห์ (Leo)", text: "กลุ่มดาวสิงห์ หรือ กลุ่มดาวสิงโต เป็นหนึ่งในกลุ่มดาวจักรราศีและเป็นดาวประจำเดือนสิงหาคม ดาวที่สว่างที่สุดคือ Regulus มีตำแหน่ง RA 10 ชั่วโมง 8 นาที และ Dec +12 องศาเหนือ ในตำนานกรีก สิงโตเนเมียนเป็นสัตว์วิเศษที่ Hercules ต้องฆ่าในการทำภารกิจ 12 ภารกิจ หลังจาก Hercules ทำสำเร็จ Zeus จึงนำสิงโตขึ้นไปบนท้องฟ้าเป็นกลุ่มดาวสิงห์ เพื่อเป็นสัญลักษณ์ของความกล้าหาญและอำนาจ" },
+    en: { name: "Leo (The Lion)", text: "Leo the Lion is a zodiac constellation for August. Bright Regulus anchors the Sickle — a backward question mark forming the lion's mane and head. Coordinates: RA 10h 8m, Dec +12°. In Greek myth, this is the fearsome Nemean Lion slain by Hercules as his first labor. Zeus immortalized the mighty lion in the sky as a symbol of courage and royal power." },
+    stars: [[30,75],[25,55],[18,38],[25,20],[42,12],[55,28],[65,48],[95,38]],
+    lines: [[0,1],[1,2],[2,3],[3,4],[4,0],[4,5],[5,6],[6,7],[0,6]],
+    labels: { 0:"Regulus", 7:"Denebola", 4:"Algieba" },
+  },
+
+  "06": {
+    th: { name: "กลุ่มดาวกันย์ (Virgo)", text: "กลุ่มดาวกันย์ หรือ กลุ่มดาวหญิงสาว เป็นหนึ่งในกลุ่มดาวจักรราศีและเป็นดาวประจำเดือนกันยายน ดาวที่สว่างที่สุดคือ Spica มีตำแหน่ง RA 13 ชั่วโมง 25 นาที และ Dec −11 องศาใต้ ในตำนานกรีก เทพี Demeter เทพีแห่งความบริสุทธิ์และความอุดมสมบูรณ์ ถูก Hades ลักพาตัวบุตรสาว ทำให้เกิดฤดูกาล กลุ่มดาวกันย์จึงถูกยกขึ้นบนฟ้าเพื่อเป็นสัญลักษณ์ของความบริสุทธิ์และความอุดมสมบูรณ์" },
+    en: { name: "Virgo (The Maiden)", text: "Virgo the Maiden is the second largest constellation and a zodiac sign for September. Brilliant Spica blazes at the lower left. Coordinates: RA 13h 25m, Dec −11°. In Greek myth, Demeter — goddess of purity and abundance — mourned her daughter Persephone taken by Hades, and their separation brought the seasons. Virgo was lifted to the sky as a symbol of purity and the fertile earth." },
+    stars: [[35,90],[42,72],[52,55],[58,38],[62,22],[68,8],[78,28],[88,45],[28,55],[15,42]],
+    lines: [[0,1],[1,2],[2,3],[3,4],[4,5],[5,6],[6,7],[2,8],[8,9]],
+    labels: { 0:"Spica", 5:"Vindemiatrix", 2:"Porrima" },
+  },
+
+  "07": {
+    th: { name: "กลุ่มดาวตุล (Libra)", text: "กลุ่มดาวตุล หรือ กลุ่มดาวตาชั่ง เป็นหนึ่งในกลุ่มดาวจักรราศี เป็นดาวประจำเดือนตุลาคม ดาวสว่างที่สุดคือ Zuben Elgenubi มีตำแหน่ง RA 15 ชั่วโมง 18 นาที และ Dec −15 องศาใต้ ในตำนานกรีก ตาชั่งเป็นเครื่องมือของเทพี Astraea เทพีแห่งความยุติธรรม กลุ่มดาวตุลจึงถูกนำขึ้นบนฟ้าเพื่อเป็นสัญลักษณ์ของความยุติธรรมและความสมดุล" },
+    en: { name: "Libra (The Scales)", text: "Libra the Scales is the only inanimate object in the zodiac, associated with October. Zubenelgenubi is its brightest star. Coordinates: RA 15h 18m, Dec −15°. Its star names mean 'southern and northern scorpion claws' in Arabic — reflecting their ancient role as Scorpius's claws. In Greek myth, these are the scales of Astraea, goddess of justice, placed in the sky as a symbol of fairness and balance." },
+    stars: [[30,78],[68,70],[50,32],[22,55],[78,52]],
+    lines: [[3,2],[2,4],[2,0],[2,1],[3,0],[4,1]],
+    labels: { 0:"Zubenelgenubi", 1:"Zubeneschamali", 2:"Brachium" },
+  },
+
+  "08": {
+    th: { name: "กลุ่มดาวพิจิก (Scorpius)", text: "กลุ่มดาวพิจิก หรือ กลุ่มดาวแมงป่อง เป็นหนึ่งในกลุ่มดาวจักรราศี เป็นดาวประจำเดือนพฤศจิกายน ดาวสว่างที่สุดคือ Antares มีตำแหน่ง RA 16 ชั่วโมง 29 นาที และ Dec −26 องศาใต้ ในตำนานกรีก แมงป่องถูกส่งโดยเทพี Artemis เพื่อฆ่า Orion ที่อวดเก่ง กลุ่มดาวพิจิกจึงถูกนำขึ้นบนฟ้าเพื่อเป็นสัญลักษณ์ของพลังและความเข้มแข็ง" },
+    en: { name: "Scorpius (The Scorpion)", text: "Scorpius the Scorpion is a zodiac constellation for November. Red supergiant Antares blazes at its heart — its name means 'rival of Mars.' Coordinates: RA 16h 29m, Dec −26°. In Greek myth, Artemis sent this scorpion to slay the boastful Orion. Zeus honored both by placing them in opposite parts of the sky, so they can never meet — Orion sets as Scorpius rises." },
+    stars: [[28,5],[45,5],[18,18],[36,18],[32,32],[40,45],[46,58],[50,68],[53,78],[50,88],[40,94],[28,90],[16,82],[8,72],[12,65]],
+    lines: [[2,0],[0,1],[1,3],[2,3],[3,4],[4,5],[5,6],[6,7],[7,8],[8,9],[9,10],[10,11],[11,12],[12,13],[13,14]],
+    labels: { 4:"Antares", 13:"Shaula", 14:"Lesath" },
+  },
+
+  "09": {
+    th: { name: "กลุ่มดาวธนู (Sagittarius)", text: "กลุ่มดาวธนู หรือ กลุ่มดาวคนยิงธนู เป็นหนึ่งในกลุ่มดาวจักรราศีและเป็นดาวประจำเดือนธันวาคม ดาวสว่างที่สุดคือ Kaus Australis มีตำแหน่ง RA 19 ชั่วโมง และ Dec −25 องศาใต้ ในตำนานกรีก Chiron เป็นเซนทอร์ที่ฉลาดและกล้าหาญ สุดท้ายสละความเป็นอมตะให้พ้นจากความเจ็บปวด Zeus ที่สงสารและยกย่องในความดีของ Chiron จึงนำรูปร่างของเซนทอร์นักธนูไปประดับบนท้องฟ้าเป็นสัญลักษณ์แห่งปัญญาและการแสวงหาเป้าหมาย" },
+    en: { name: "Sagittarius (The Archer)", text: "Sagittarius the Archer is a zodiac constellation for December. Kaus Australis is its brightest star. Coordinates: RA 19h, Dec −25°. The Teapot asterism points its spout toward the galactic center — the Milky Way's glowing core. In myth, the noble centaur Chiron willingly surrendered his immortality to end his suffering. Zeus, moved by his wisdom and sacrifice, placed the archer's form among the stars." },
+    stars: [[82,75],[78,52],[75,30],[58,15],[40,8],[22,28],[8,48],[15,68],[38,78],[60,82]],
+    lines: [[0,1],[1,2],[2,3],[3,4],[4,5],[5,6],[6,7],[7,8],[8,9],[9,0],[2,8],[1,9]],
+    labels: { 0:"Kaus Australis", 4:"Nunki", 2:"Kaus Borealis" },
+  },
+
   "10": {
-    th: { name: "ปลา (ไพซีส)", text: "กลุ่มดาวปลา เป็นกลุ่มดาวจักรราศีขนาดใหญ่ แทนปลาสองตัวที่เชื่อมกัน" },
-    en: { name: "Pisces (The Fish)", text: "Pisces is a large but faint zodiac constellation representing two fish tied by a cord." },
-    stars: [[20,50],[35,38],[50,48],[62,58],[72,72],[68,85],[55,80],[48,68],[55,58],[68,48],[78,38],[80,52]],
-    lines: [[0,1],[1,2],[2,3],[3,4],[4,5],[5,6],[6,7],[7,8],[8,2],[8,9],[9,10],[10,11],[11,3]],
-    labels: {0:"Alrescha"}
+    th: { name: "กลุ่มดาวมกร (Capricornus)", text: "กลุ่มดาวมกร หรือ กลุ่มดาวแพะทะเล เป็นหนึ่งในกลุ่มดาวจักรราศี เป็นดาวประจำเดือนมกราคม ดาวสว่างที่สุดคือ Deneb Algedi มีตำแหน่ง RA 21 ชั่วโมง 47 นาที และ Dec −16 องศาใต้ ในตำนานกรีก เกี่ยวกับ Pan ครึ่งแพะครึ่งปลาซึ่งเป็นเทพที่หนีปีศาจ Typhon แล้วกลายร่างครึ่งปลา กลุ่มดาวมกรจึงถูกนำขึ้นบนฟ้าเพื่อเป็นสัญลักษณ์ของความมุ่งมั่นและความพยายาม" },
+    en: { name: "Capricornus (Sea Goat)", text: "Capricornus the Sea Goat is a zodiac constellation for January. Deneb Algedi is its brightest star. Coordinates: RA 21h 47m, Dec −16°. Known to Babylonians as the divine sea-goat for over 3,000 years. In Greek myth, the god Pan leaped into the Nile to escape the monster Typhon, accidentally transforming into this half-goat, half-fish creature — placed in the sky as a symbol of determination and perseverance." },
+    stars: [[8,28],[28,18],[52,10],[75,18],[92,32],[88,55],[72,75],[48,85],[22,78],[5,55]],
+    lines: [[0,1],[1,2],[2,3],[3,4],[4,5],[5,6],[6,7],[7,8],[8,9],[9,0],[1,9],[2,7]],
+    labels: { 0:"Algedi", 6:"Deneb Algedi", 1:"Dabih" },
   },
+
   "11": {
-    th: { name: "หญิงสาว (เวอร์โก)", text: "กลุ่มดาวหญิงสาว มีดาวสไปกาเป็นดาวที่สว่างที่สุด" },
-    en: { name: "Virgo (The Maiden)", text: "Virgo is the second largest constellation, featuring bright Spica near the Virgo galaxy cluster." },
-    stars: [[50,18],[42,32],[32,48],[22,62],[35,72],[52,68],[68,58],[78,42],[62,30]],
-    lines: [[0,1],[1,2],[2,3],[3,4],[4,5],[5,6],[6,7],[7,8],[8,1],[5,1]],
-    labels: {4:"Spica",0:"Vindemiatrix"}
+    th: { name: "กลุ่มดาวกุมภ์ (Aquarius)", text: "กลุ่มดาวกุมภ์ หรือ กลุ่มดาวคนแบกหม้อน้ำ เป็นหนึ่งในกลุ่มดาวจักรราศีและเป็นดาวประจำเดือนกุมภาพันธ์ ดาวสว่างที่สุดคือ Sadalmelik มีตำแหน่ง RA 22 ชั่วโมง 0 นาที และ Dec −5 องศาใต้ ในตำนานกรีก Ganymede เป็นเด็กหนุ่มรูปงามที่ Zeus พาไปเป็นคนรินน้ำให้เทพ กลุ่มดาวกุมภ์จึงถูกนำขึ้นบนฟ้าเพื่อเป็นสัญลักษณ์ของการให้และความเมตตา" },
+    en: { name: "Aquarius (Water Bearer)", text: "Aquarius the Water Bearer is a zodiac constellation for February. Sadalmelik is its brightest star. Coordinates: RA 22h 0m, Dec −5°. The Y-shaped Water Jar pours a stream of stars southward. In Greek myth, beautiful Ganymede was brought to Olympus by Zeus himself to serve as cupbearer to the gods — placed in the sky as a symbol of generosity and divine compassion." },
+    stars: [[35,15],[55,22],[45,35],[30,40],[58,40],[40,52],[28,62],[18,72],[10,83],[32,88],[50,82],[65,68],[75,52]],
+    lines: [[0,2],[1,2],[2,3],[2,4],[3,4],[3,5],[5,6],[6,7],[7,8],[8,9],[9,10],[4,12],[12,11],[11,10],[0,1]],
+    labels: { 1:"Sadalmelik", 0:"Sadalsuud", 8:"Skat" },
   },
+
   "12": {
-    th: { name: "คันชั่ง (ไลบรา)", text: "กลุ่มดาวคันชั่ง เป็นกลุ่มดาวจักรราศีเพียงกลุ่มเดียวที่เป็นวัตถุไม่มีชีวิต" },
-    en: { name: "Libra (The Scales)", text: "Libra is the only inanimate object among the zodiac constellations, representing the scales of justice." },
-    stars: [[28,70],[50,42],[72,70],[50,82]],
-    lines: [[0,1],[1,2],[2,3],[3,0],[0,2]],
-    labels: {0:"Zubenelgenubi",2:"Zubeneschamali"}
+    th: { name: "กลุ่มดาวมีน (Pisces)", text: "กลุ่มดาวมีน หรือ กลุ่มดาวปลาคู่ เป็นหนึ่งในกลุ่มดาวจักรราศีและเป็นดาวประจำเดือนมีนาคม ดาวสว่างที่สุดคือ Alrescha มีตำแหน่ง RA 1 ชั่วโมง 0 นาที และ Dec +15 องศาเหนือ ในตำนานกรีก เทพี Aphrodite และลูกชาย Eros แปลงร่างเป็นปลาเพื่อหนีจาก Typhon และผูกหางด้วยเส้นเชือก กลุ่มดาวมีนจึงถูกนำขึ้นบนฟ้าเพื่อเป็นสัญลักษณ์ของความรักและความผูกพัน" },
+    en: { name: "Pisces (The Fish)", text: "Pisces the Fish is a zodiac constellation for March. Alrescha, the knot tying the two fish, is its brightest star. Coordinates: RA 1h 0m, Dec +15°. In Greek myth, Aphrodite and her son Eros transformed into two fish to escape the fearsome monster Typhon, tying their tails together so they would never be separated — immortalized in the sky as a symbol of love and eternal bond." },
+    stars: [[60,62],[42,45],[32,30],[20,22],[10,32],[8,48],[15,60],[30,65],[44,60],[72,50],[82,38],[92,22],[95,8]],
+    lines: [[0,1],[1,2],[2,3],[3,4],[4,5],[5,6],[6,7],[7,8],[8,0],[0,9],[9,10],[10,11],[11,12]],
+    labels: { 0:"Alrescha", 12:"η Psc" },
   },
+
   "13": {
-    th: { name: "คนยิงธนู (ซาจิททาเรียส)", text: "กลุ่มดาวคนยิงธนู อยู่ในทิศทางของใจกลางกาแล็กซีทางช้างเผือก" },
-    en: { name: "Sagittarius (The Archer)", text: "Sagittarius points toward the center of the Milky Way, the richest star-dense region of the night sky." },
-    stars: [[28,72],[45,55],[62,65],[78,50],[72,32],[55,38],[42,42],[52,68],[68,78],[52,82]],
-    lines: [[0,1],[1,2],[2,3],[3,4],[4,5],[5,6],[6,1],[6,7],[7,8],[8,9],[9,0],[2,7]],
-    labels: {4:"Kaus Australis",3:"Nunki"}
+    th: { name: "กลุ่มดาวนายพราน (Orion)", text: "กลุ่มดาวนายพราน หรือ กลุ่มดาวโอไรออน เป็นหนึ่งในกลุ่มดาวที่สว่างและโด่งดังที่สุดบนท้องฟ้า ดาวที่เด่นที่สุดคือ Betelgeuse และ Rigel มีพิกัด RA 5 ชั่วโมง และ Dec +5 องศาเหนือ ในตำนานกรีก Orion เป็นพรานล่าสัตว์ผู้เก่งกาจ แต่ถูกแมงป่องพิฆาตตามคำสั่งของเทพี Artemis จึงถูก Zeus ยกขึ้นบนท้องฟ้าเป็นกลุ่มดาวนายพราน คู่กับกลุ่มดาวสุนัขล่าเนื้อและแมงป่อง" },
+    en: { name: "Orion (The Hunter)", text: "Orion the Hunter is one of the most magnificent constellations in the sky. Betelgeuse marks the left shoulder, Rigel the right foot. Coordinates: RA 5h, Dec +5°. Three belt stars — Mintaka, Alnilam, Alnitak — form an unmistakable diagonal line. In Greek myth, Orion was a great hunter slain by Scorpius at Artemis's command. Zeus honored both by placing them on opposite sides of the sky, so they never meet." },
+    stars: [[48,5],[28,25],[68,20],[65,50],[48,55],[30,60],[30,88],[72,85],[40,70],[38,79]],
+    lines: [[0,1],[0,2],[1,3],[2,5],[3,4],[4,5],[3,7],[5,6],[5,8],[8,9]],
+    labels: { 1:"Betelgeuse", 6:"Rigel", 4:"Alnilam" },
   },
+
   "14": {
-    th: { name: "แพะทะเล (แคปริคอร์นัส)", text: "กลุ่มดาวแพะทะเล รูปร่างเป็นสัตว์ครึ่งแพะครึ่งปลา" },
-    en: { name: "Capricornus (Sea Goat)", text: "Capricornus represents a mythical half-goat, half-fish creature with a distinctive triangular shape." },
-    stars: [[18,42],[42,28],[65,35],[88,55],[82,72],[60,80],[38,75],[18,62]],
-    lines: [[0,1],[1,2],[2,3],[3,4],[4,5],[5,6],[6,7],[7,0]],
-    labels: {0:"Algedi",3:"Dabih"}
+    th: { name: "กลุ่มดาวหมาเล็ก (Canis Minor)", text: "กลุ่มดาวหมาเล็ก เป็นกลุ่มดาวที่มีสัญลักษณ์เป็นสุนัขล่าเนื้อคู่ใจของนายพราน ดาวที่สว่างที่สุดคือ Procyon มีตำแหน่ง RA 7 ชั่วโมง 39 นาที และ Dec +5 องศาเหนือ ในตำนานกรีก หมาเล็กเป็นสุนัขที่ติดตามนายพราน Orion และถูกยกขึ้นบนฟ้าเพื่อเคียงข้างเจ้านายของมัน" },
+    en: { name: "Canis Minor (Little Dog)", text: "Canis Minor the Little Dog is Orion's faithful lesser hunting companion. Procyon — its brightest star — is only 11.5 light-years from Earth and forms the Winter Triangle with Sirius and Betelgeuse. Coordinates: RA 7h 39m, Dec +5°. In Greek myth, this loyal little hound faithfully followed Orion and was honored with a place in the sky forever at its master's side." },
+    stars: [[25,45],[75,55]],
+    lines: [[0,1]],
+    labels: { 0:"Procyon", 1:"Gomeisa" },
   },
+
   "15": {
-    th: { name: "คนแบกหม้อน้ำ (อะควอเรียส)", text: "กลุ่มดาวคนแบกหม้อน้ำ มีความเกี่ยวข้องกับน้ำและฤดูฝนในหลายวัฒนธรรม" },
-    en: { name: "Aquarius (Water Bearer)", text: "Aquarius is a large zodiac constellation associated with water and rain across many ancient cultures." },
-    stars: [[50,22],[38,38],[25,55],[32,72],[50,80],[68,72],[72,55],[60,40],[50,55],[38,68]],
-    lines: [[0,1],[1,2],[2,3],[3,4],[4,5],[5,6],[6,7],[7,0],[7,8],[8,9],[9,3]],
-    labels: {0:"Sadalsuud",4:"Sadalmelik"}
+    th: { name: "กลุ่มดาวคนเลี้ยงสัตว์ (Boötes)", text: "กลุ่มดาวคนเลี้ยงสัตว์ มีสัญลักษณ์เป็นชายผู้เลี้ยงสัตว์และถือเคียว ดาวที่สว่างที่สุดคือ Arcturus ซึ่งเป็นหนึ่งในดาวที่สว่างที่สุดบนท้องฟ้า มีตำแหน่ง RA 14 ชั่วโมง 15 นาที และ Dec +19 องศาเหนือ ตามตำนานกรีก คนเลี้ยงสัตว์เชื่อมโยงกับ Arcas บุตรของ Zeus คนเลี้ยงสัตว์จึงถูกวาดไว้บนฟ้าเพื่อเฝ้าดูฝูงสัตว์และเป็นสัญลักษณ์แห่งความขยัน" },
+    en: { name: "Boötes (The Herdsman)", text: "Boötes the Herdsman drives the Great Bear around the pole. Orange giant Arcturus — one of the brightest stars visible — blazes at its base. Coordinates: RA 14h 15m, Dec +19°. 'Arc to Arcturus' from the handle of the Big Dipper is a famous navigation trick. In Greek myth, Boötes is Arcas, son of Zeus, placed in the sky as a symbol of diligence and watchful care." },
+    stars: [[50,92],[30,68],[70,65],[20,45],[80,42],[30,22],[70,20],[50,8]],
+    lines: [[0,1],[0,2],[1,3],[2,4],[3,5],[4,6],[5,7],[7,6],[1,2]],
+    labels: { 0:"Arcturus", 4:"Seginus", 7:"θ Boo" },
   },
+
   "16": {
-    th: { name: "ปู (แคนเซอร์)", text: "กลุ่มดาวปู มีกระจุกดาวรังผึ้งที่น่าสนใจ" },
-    en: { name: "Cancer (The Crab)", text: "Cancer is the faintest zodiac constellation, containing the Beehive Cluster with over a thousand stars." },
-    stars: [[28,35],[50,50],[72,35],[65,70],[35,70]],
-    lines: [[0,1],[1,2],[1,3],[1,4],[0,4],[2,3]],
-    labels: {1:"Beehive",0:"Acubens"}
+    th: { name: "กลุ่มดาวสารถี (Auriga)", text: "กลุ่มดาวสารถี มีสัญลักษณ์เป็นชายขับรถศึก ถือบังเหียน ดาวที่สว่างที่สุดคือ Capella ซึ่งเป็นหนึ่งในดาวฤกษ์ที่สว่างที่สุดในท้องฟ้า มีตำแหน่ง RA 5 ชั่วโมง 16 นาที และ Dec +46 องศาเหนือ ในตำนานกรีก Auriga มักเชื่อมโยงกับเทพ Hephaestus หรือกษัตริย์ที่คิดค้นรถศึก จึงถูกยกขึ้นบนฟ้าเป็นกลุ่มดาวสารถีแทนเกียรติยศ" },
+    en: { name: "Auriga (The Charioteer)", text: "Auriga the Charioteer commands his chariot across the sky. Brilliant Capella — a pair of giant stars — is one of the brightest in the night sky. Coordinates: RA 5h 16m, Dec +46°. The pentagon of Auriga is easy to spot in winter skies. In Greek myth, Auriga is linked to Hephaestus or a legendary king who invented the four-horse chariot, immortalized in the sky as a symbol of ingenuity and honor." },
+    stars: [[20,12],[65,8],[90,42],[75,82],[25,88],[5,52]],
+    lines: [[0,1],[1,2],[2,3],[3,4],[4,5],[5,0],[0,3]],
+    labels: { 0:"Capella", 1:"Menkib", 3:"Hassaleh" },
   },
+
   "17": {
-    th: { name: "สุนัขใหญ่ (คานิสเมเจอร์)", text: "กลุ่มดาวสุนัขใหญ่ มีดาวซิริอัส ซึ่งเป็นดาวที่สว่างที่สุดบนท้องฟ้ายามค่ำคืน" },
-    en: { name: "Canis Major (Great Dog)", text: "Canis Major contains Sirius, the brightest star in the entire night sky, known as the Dog Star." },
-    stars: [[50,22],[38,38],[25,55],[20,72],[35,80],[55,75],[70,62],[78,45],[62,38]],
-    lines: [[0,1],[1,2],[2,3],[3,4],[4,5],[5,6],[6,7],[7,8],[8,0],[6,5],[1,8]],
-    labels: {0:"Sirius",4:"Adhara"}
+    th: { name: "กลุ่มดาวแคสสิโอเปีย (Cassiopeia)", text: "กลุ่มดาวแคสสิโอเปียมีลักษณะเด่นคือดาว 5 ดวงเรียงกันเป็นรูปตัว W หรือ M บนท้องฟ้า ในตำนานกรีก Cassiopeia เป็นราชินีผู้โอ้อวดความงามจนสร้างความไม่พอใจแก่เทพโปไซดอน เพื่อเป็นการลงโทษ Cassiopeia ถูกนำไปประดับบนท้องฟ้า โดยถูกจัดให้นั่งบนบัลลังก์หมุนรอบขั้วฟ้า เป็นเครื่องเตือนใจถึงโทษของความหยิ่งผยอง" },
+    en: { name: "Cassiopeia", text: "Cassiopeia's five stars form a clear W or M shape near the north pole, visible year-round from the northern hemisphere. In Greek myth, Queen Cassiopeia boasted that she and her daughter surpassed the beauty of the sea nymphs, enraging Poseidon. As punishment, she was bound to a throne that endlessly circles the celestial pole — sometimes upside down — an eternal reminder of the dangers of arrogance." },
+    stars: [[5,38],[27,78],[50,28],[73,72],[95,35]],
+    lines: [[0,1],[1,2],[2,3],[3,4]],
+    labels: { 0:"Caph", 1:"Schedar", 2:"γ Cas", 3:"Ruchbah", 4:"Segin" },
   },
+
   "18": {
-    th: { name: "สุนัขเล็ก (คานิสไมเนอร์)", text: "กลุ่มดาวสุนัขเล็ก มีดาวโพรซิออนเป็นดาวสว่างหลัก" },
-    en: { name: "Canis Minor (Little Dog)", text: "Canis Minor features bright Procyon, forming part of the Winter Triangle with Sirius and Betelgeuse." },
-    stars: [[28,55],[62,45],[88,55]],
-    lines: [[0,1],[1,2]],
-    labels: {0:"Procyon",2:"Gomeisa"}
+    th: { name: "กลุ่มดาวหมีเล็ก (Ursa Minor)", text: "กลุ่มดาวหมีเล็ก หรือ กระบวยเล็ก มีดาวที่สำคัญที่สุดคือ Polaris หรือดาวเหนือ มีตำแหน่ง RA 15 ชั่วโมง และ Dec +75 องศาเหนือ ในตำนานกรีก หมีเล็กมักถูกโยงกับบุตรชายของ Callisto และ Zeus ซึ่งถูกยกขึ้นบนฟ้าเพื่ออยู่คู่กับมารดาของตนที่กลายเป็นหมีใหญ่" },
+    en: { name: "Ursa Minor (Little Bear)", text: "Ursa Minor the Little Bear has Polaris — Earth's current north pole star — at the tip of its handle. The bowl opens downward unlike the Big Dipper. Coordinates: RA 15h, Dec +75°. Kochab and Pherkad are known as the Guardians of the Pole. In Greek myth, the Little Bear is Arcas, son of Callisto and Zeus, placed in the sky to be forever near his mother the Great Bear." },
+    stars: [[50,5],[55,22],[62,38],[72,52],[85,65],[70,72],[58,58]],
+    lines: [[0,1],[1,2],[2,3],[3,4],[4,5],[5,6],[6,3]],
+    labels: { 0:"Polaris", 5:"Kochab", 4:"Pherkad" },
   },
+
   "19": {
-    th: { name: "มังกร (ดราโก)", text: "กลุ่มดาวมังกร เป็นกลุ่มดาวยาวคดเคี้ยวอยู่ใกล้ขั้วฟ้าเหนือ" },
-    en: { name: "Draco (The Dragon)", text: "Draco is a long winding constellation coiling around the north celestial pole. Its star Thuban was once the pole star." },
-    stars: [[52,18],[62,28],[72,42],[68,58],[55,68],[42,78],[32,68],[25,55],[28,42],[40,35],[55,42],[68,52]],
-    lines: [[0,1],[1,2],[2,3],[3,4],[4,5],[5,6],[6,7],[7,8],[8,9],[9,10],[10,11],[11,3]],
-    labels: {0:"Thuban",4:"Eltanin"}
+    th: { name: "กลุ่มดาวหมีใหญ่ (Ursa Major)", text: "กลุ่มดาวหมีใหญ่ เป็นหนึ่งในกลุ่มดาวที่โดดเด่นที่สุดบนท้องฟ้า กระบวยใหญ่ประกอบด้วยดาวสว่าง 7 ดวง ดาวที่สว่างที่สุดคือ Dubhe มีตำแหน่ง RA 11 ชั่วโมง และ Dec +56 องศาเหนือ ในตำนานกรีก หมีใหญ่คือตัว Callisto หญิงงามที่ถูกแปลงร่างเป็นหมีโดยเทพี Hera และต่อมาถูก Zeus ยกขึ้นบนฟ้าเพื่อปกป้อง" },
+    en: { name: "Ursa Major (Great Bear)", text: "Ursa Major the Great Bear contains the famous Big Dipper — seven stars forming a bowl and curved handle. Dubhe is its brightest star. Coordinates: RA 11h, Dec +56°. Pointer stars Dubhe and Merak aim directly at Polaris. Arc from the handle to Arcturus is a beloved navigation technique. In myth, Callisto was transformed into a bear by Hera; Zeus placed her in the sky to protect her." },
+    stars: [[18,12],[22,35],[42,48],[38,22],[58,28],[75,42],[95,62]],
+    lines: [[0,1],[1,2],[2,3],[3,0],[3,4],[4,5],[5,6]],
+    labels: { 0:"Dubhe", 1:"Merak", 5:"Mizar", 6:"Alkaid" },
   },
+
   "20": {
-    th: { name: "นกอินทรี (อะควิลา)", text: "กลุ่มดาวนกอินทรี มีดาวอัลแทร์และเป็นส่วนหนึ่งของสามเหลี่ยมฤดูร้อน" },
-    en: { name: "Aquila (The Eagle)", text: "Aquila features bright Altair, one vertex of the Summer Triangle, only 17 light-years from Earth." },
-    stars: [[50,22],[38,38],[25,52],[42,62],[50,48],[58,62],[75,52],[62,38],[50,35]],
-    lines: [[0,8],[8,1],[8,7],[1,2],[2,3],[3,4],[4,5],[5,6],[6,7]],
-    labels: {0:"Altair",2:"Tarazed"}
+    th: { name: "กลุ่มดาวพิณ (Lyra)", text: "กลุ่มดาวพิณ มีสัญลักษณ์เป็นเครื่องดนตรีพิณของ Orpheus ดาวที่สว่างที่สุดคือ Vega ซึ่งเป็นหนึ่งในดาวที่สว่างที่สุดบนท้องฟ้า มีตำแหน่ง RA 18 ชั่วโมง 37 นาที และ Dec +38 องศาเหนือ ตามตำนานกรีก Orpheus เป็นนักดนตรีผู้ใช้พิณบรรเลงจนเทพเจ้าหลงใหล หลังจากเขาเสียชีวิต Zeus จึงนำพิณขึ้นบนฟ้าเป็นอนุสรณ์ให้แก่ Orpheus" },
+    en: { name: "Lyra (The Lyre)", text: "Lyra the Lyre is the harp of the legendary Orpheus. Brilliant Vega — fifth brightest star in the sky — anchors the Summer Triangle with Deneb and Altair. Coordinates: RA 18h 37m, Dec +38°. The Ring Nebula (M57) lies between Sheliak and Sulafat. In Greek myth, Orpheus played so beautifully that even rocks wept. After his death, Zeus honored him by placing his lyre among the stars." },
+    stars: [[50,8],[25,40],[28,65],[50,75],[72,65],[75,40]],
+    lines: [[0,1],[0,5],[1,2],[2,3],[3,4],[4,5],[5,1]],
+    labels: { 0:"Vega", 2:"Sheliak", 4:"Sulafat" },
   },
+
   "21": {
-    th: { name: "พิณ (ไลรา)", text: "กลุ่มดาวพิณ มีดาวเวกา หนึ่งในดาวที่สว่างที่สุดและเป็นมุมของสามเหลี่ยมฤดูร้อน" },
-    en: { name: "Lyra (The Lyre)", text: "Lyra contains Vega, fifth brightest star in the sky and a corner of the Summer Triangle." },
-    stars: [[50,22],[38,48],[32,72],[50,80],[68,72],[62,48]],
-    lines: [[0,1],[0,5],[1,2],[2,3],[3,4],[4,5],[1,5]],
-    labels: {0:"Vega",3:"Sulafat"}
+    th: { name: "กลุ่มดาวนกอินทรี (Aquila)", text: "กลุ่มดาวนกอินทรี มีสัญลักษณ์เป็นนกอินทรีผู้ยิ่งใหญ่ ดาวที่สว่างที่สุดคือ Altair มีตำแหน่ง RA 19 ชั่วโมง 51 นาที และ Dec +8 องศาเหนือ ในตำนานกรีก Aquila คือนกอินทรีของ Zeus ที่ทำหน้าที่พา Ganymede ขึ้นสู่โอลิมปัสเพื่อเป็นคนรินน้ำ" },
+    en: { name: "Aquila (The Eagle)", text: "Aquila the Eagle soars along the Milky Way with brilliant Altair at its center. Altair rotates so fast it is visibly flattened. Coordinates: RA 19h 51m, Dec +8°. Altair forms one corner of the Summer Triangle with Vega and Deneb. In Greek myth, Aquila is Zeus's great eagle — tasked with carrying thunderbolts and bringing the beautiful Ganymede up to Olympus to serve the gods." },
+    stars: [[50,38],[36,30],[64,45],[50,15],[38,58],[42,72],[50,85],[60,70]],
+    lines: [[1,0],[0,2],[3,0],[0,4],[4,5],[5,6],[2,7],[7,6]],
+    labels: { 0:"Altair", 1:"Tarazed", 2:"Alshain" },
   },
+
   "22": {
-    th: { name: "หงส์ (ไซกนัส)", text: "กลุ่มดาวหงส์ มีรูปร่างคล้ายไม้กางเขน อยู่ในแนวของทางช้างเผือก" },
-    en: { name: "Cygnus (The Swan)", text: "Cygnus is shaped like a cross along the Milky Way. Deneb is one of the most luminous stars known." },
-    stars: [[50,18],[50,40],[50,62],[50,82],[22,52],[78,52]],
-    lines: [[0,1],[1,2],[2,3],[4,1],[1,5]],
-    labels: {0:"Deneb",3:"Albireo"}
+    th: { name: "กลุ่มดาวหงส์ (Cygnus)", text: "กลุ่มดาวหงส์ มีสัญลักษณ์เป็นนกที่กางปีกบิน ดาวที่สว่างที่สุดคือ Deneb อยู่ที่หางหงส์ มีตำแหน่ง RA 20 ชั่วโมง 41 นาที และ Dec +42 องศาเหนือ ในตำนานกรีก Cygnus เป็นเพื่อนของ Phaethon ที่ตกลงมาจากรถสุริยะ เขาแปลงกายเป็นหงส์เพื่อตามหาซากเพื่อน และได้รับการยกขึ้นบนฟ้าเป็นกลุ่มดาวเพื่อเป็นสัญลักษณ์ของความรักและมิตรภาพ" },
+    en: { name: "Cygnus (The Swan)", text: "Cygnus the Swan flies along the Milky Way, its Northern Cross shape unmistakable. Deneb — despite being 2,600 light-years away — shines brilliantly as one of the most luminous stars known. Coordinates: RA 20h 41m, Dec +42°. In myth, devoted Cygnus transformed into a swan to search the river for his fallen friend Phaethon. The gods honored this friendship by placing him among the stars as a symbol of love and loyalty." },
+    stars: [[50,5],[50,38],[50,82],[8,40],[92,38],[26,39],[74,38],[50,62]],
+    lines: [[0,1],[1,7],[7,2],[3,5],[5,1],[1,6],[6,4]],
+    labels: { 0:"Deneb", 2:"Albireo", 1:"Sadr" },
   },
+
   "23": {
-    th: { name: "โลมา (เดลฟินัส)", text: "กลุ่มดาวโลมา เป็นกลุ่มดาวขนาดเล็กแต่มีรูปทรงชัดเจน" },
-    en: { name: "Delphinus (The Dolphin)", text: "Delphinus is small but distinctive, resembling a leaping dolphin in the summer sky." },
-    stars: [[50,28],[62,42],[58,60],[42,60],[38,42]],
-    lines: [[0,1],[1,2],[2,3],[3,4],[4,0],[1,4]],
-    labels: {0:"Rotanev",2:"Sualocin"}
+    th: { name: "กลุ่มดาวสุนัขใหญ่ (Canis Major)", text: "กลุ่มดาวสุนัขใหญ่ มีสัญลักษณ์เป็นสุนัขล่าเนื้อขนาดใหญ่ที่ติดตามนายพราน Orion ดาวที่สว่างที่สุดคือ Sirius ซึ่งเป็นดาวที่สว่างที่สุดในท้องฟ้ายามค่ำคืน มีตำแหน่ง RA 6 ชั่วโมง 45 นาที และ Dec −17 องศาใต้ ในตำนานกรีก Canis Major เป็นสุนัขคู่ใจของ Orion นายพราน Sirius ยังถูกเรียกว่าดาวสุนัขและถูกใช้บอกฤดูกาลมาตั้งแต่สมัยโบราณ" },
+    en: { name: "Canis Major (The Great Dog)", text: "Canis Major the Great Dog faithfully follows Orion across the winter sky. Sirius — its brilliant alpha star — is the brightest star in the entire night sky at magnitude −1.46, only 8.6 light-years away. Coordinates: RA 6h 45m, Dec −17°. The ancient 'Dog Days of summer' were named for Sirius rising with the Sun. In Greek myth, this loyal hound at Orion's heel was honored with a permanent place among the stars." },
+    stars: [[50,20],[22,28],[68,18],[72,52],[62,68],[22,72],[90,62]],
+    lines: [[0,1],[0,2],[0,3],[2,3],[3,4],[4,5],[1,5],[3,6],[4,6]],
+    labels: { 0:"Sirius", 4:"Adhara", 6:"Aludra" },
   },
+
   "24": {
-    th: { name: "สามเหลี่ยม (ไทรแองกูลัม)", text: "กลุ่มดาวสามเหลี่ยม มีดาวสามดวงเรียงกัน และอยู่ใกล้กาแล็กซีแอนดรอเมดา" },
-    en: { name: "Triangulum", text: "Triangulum forms a slim triangle near the Andromeda Galaxy, containing the Triangulum Galaxy visible to the naked eye." },
-    stars: [[50,22],[22,72],[78,72]],
-    lines: [[0,1],[1,2],[2,0]],
-    labels: {0:"Mothallah",1:"Deltotum"}
-  }
+    th: { name: "กลุ่มดาวฟีนิกซ์ (Phoenix)", text: "กลุ่มดาวฟีนิกซ์ หรือ กลุ่มดาวนกฟีนิกซ์ เป็นกลุ่มดาวในซีกฟ้าใต้ ดาวที่สว่างที่สุดคือ Ankaa มีตำแหน่ง RA 0 ชั่วโมง 26 นาที และ Dec −42 องศาใต้ ฟีนิกซ์เป็นนกในตำนานที่เมื่อตายแล้วจะฟื้นขึ้นจากเถ้าถ่านของตนเอง เป็นสัญลักษณ์ของการเกิดใหม่และความอมตะ กลุ่มดาวนี้ถูกตั้งชื่อโดยนักดาราศาสตร์ชาวดัตช์ในศตวรรษที่ 16" },
+    en: { name: "Phoenix (The Firebird)", text: "Phoenix the mythical firebird is a southern constellation best seen from the southern hemisphere in late northern autumn. Ankaa is its brightest star. Coordinates: RA 0h 26m, Dec −42°. Named by Dutch navigators Petrus Plancius and Frederick de Houtman in the late 16th century. Like the legendary phoenix rising reborn from its own ashes, this constellation endures as a symbol of renewal, resilience, and the eternal cycle of transformation." },
+    stars: [[50,55],[28,35],[65,28],[85,50],[78,75],[18,65],[50,12]],
+    lines: [[6,1],[6,2],[1,0],[0,2],[0,5],[0,3],[5,4],[3,4]],
+    labels: { 0:"Ankaa", 6:"κ Phe", 3:"ζ Phe" },
+  },
+
 };

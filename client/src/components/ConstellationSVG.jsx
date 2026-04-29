@@ -1,8 +1,8 @@
 import { useEffect, useRef } from "react";
 
-const BADGE_H = 72;   // ต้องตรงกับ CSS .star-badge height
-const HINT_H  = 72;   // ต้องตรงกับ CSS .instruction height
-const PAD_X   = 24;   // เว้นซ้ายขวา px
+const BADGE_H = 76;   // matches CSS .star-badge height
+const HINT_H  = 76;   // matches CSS .speech-bar height
+const PAD_X   = 60;   // side padding — clears nav buttons
 
 export default function ConstellationSVG({ entry }) {
   const svgRef = useRef(null);
@@ -62,7 +62,7 @@ export default function ConstellationSVG({ entry }) {
         const el = document.createElementNS(ns, "line");
         el.setAttribute("x1", pts[a][0]); el.setAttribute("y1", pts[a][1]);
         el.setAttribute("x2", pts[b][0]); el.setAttribute("y2", pts[b][1]);
-        el.setAttribute("stroke", "rgba(100,160,255,0.42)");
+        el.setAttribute("stroke", "rgba(79,195,247,0.38)");
         el.setAttribute("stroke-width", lineWidth);
         el.setAttribute("stroke-linecap", "round");
         svg.appendChild(el);
@@ -78,7 +78,7 @@ export default function ConstellationSVG({ entry }) {
         glow.setAttribute("cx", x); glow.setAttribute("cy", y);
         glow.setAttribute("r", r * 3);
         glow.setAttribute("fill", isNamed
-          ? "rgba(160,200,255,0.08)" : "rgba(100,160,255,0.05)");
+          ? "rgba(79,195,247,0.09)" : "rgba(79,195,247,0.05)");
         svg.appendChild(glow);
 
         // inner glow
@@ -86,7 +86,7 @@ export default function ConstellationSVG({ entry }) {
         inner.setAttribute("cx", x); inner.setAttribute("cy", y);
         inner.setAttribute("r", r * 1.8);
         inner.setAttribute("fill", isNamed
-          ? "rgba(180,215,255,0.15)" : "rgba(120,170,255,0.08)");
+          ? "rgba(0,229,255,0.14)" : "rgba(79,195,247,0.07)");
         svg.appendChild(inner);
 
         // จุดดาว
@@ -94,7 +94,7 @@ export default function ConstellationSVG({ entry }) {
         dot.setAttribute("cx", x); dot.setAttribute("cy", y);
         dot.setAttribute("r", r);
         dot.setAttribute("fill", isNamed
-          ? "rgba(230,242,255,0.97)" : "rgba(150,190,255,0.85)");
+          ? "rgba(220,245,255,0.97)" : "rgba(140,205,255,0.82)");
         svg.appendChild(dot);
 
         // label — ป้องกันชนขอบจอ
