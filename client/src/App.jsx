@@ -7,6 +7,7 @@ import SwipeCarousel from "./components/SwipeCarousel";
 import LangToggle from "./components/LangToggle";
 import StarBadge from "./components/StarBadge";
 import Orb from "./components/Orb";
+import InfoModal from "./components/InfoModal";
 import "./App.css";
 
 const STAR_IDS = [
@@ -31,6 +32,7 @@ const UI_TEXT = {
     loading: "กำลังโหลดเสียง...",
     prev:    "ก่อนหน้า",
     next:    "ถัดไป",
+    info:    "ดูรายละเอียด",
   },
   en: {
     label:   "Constellation",
@@ -40,6 +42,7 @@ const UI_TEXT = {
     loading: "Loading audio...",
     prev:    "Previous",
     next:    "Next",
+    info:    "View details",
   },
 };
 
@@ -58,6 +61,7 @@ export default function App() {
   const [starId, setStarId] = useState(getInitialStarId);
   const [started, setStarted] = useState(false);
   const [flash, setFlash]   = useState(null);
+  const [infoOpen, setInfoOpen] = useState(false);
 
   useStarfield(canvasRef);
 
@@ -197,6 +201,24 @@ export default function App() {
       </button>
 
       <LangToggle lang={lang} setLang={setLang} />
+
+      <button
+        className="info-btn"
+        onClick={() => { stop(); setInfoOpen(true); }}
+        aria-label={ui.info}
+        title={ui.info}
+      >
+        i
+      </button>
+
+      <InfoModal
+        open={infoOpen}
+        onClose={() => setInfoOpen(false)}
+        id={starId}
+        lang={lang}
+      />
+
+      <div className="app-footer">Developed by 0Maruz</div>
 
       {error && (
         <div role="alert" onClick={clearError} className="error-toast">

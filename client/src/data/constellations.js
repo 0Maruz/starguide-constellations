@@ -19,7 +19,7 @@ export const VALID_STAR_IDS = new Set([
 
 export const constellations = {
 
-  // ── ARIES ─── (Rey) ──────────────────────────────────────
+  // ── ARIES ─── (modern) ──────────────────────────────────────
   "aries": {
     th: {
       name: "กลุ่มดาวเมษ (Aries)",
@@ -30,19 +30,13 @@ export const constellations = {
       text: "Aries the Ram is one of the zodiac constellations, associated with April. Its brightest star is Hamal at RA 2h 7m, Dec +23°. In Greek myth, Hermes gifted a golden-fleeced ram to Nephele to save her children Phrixus and Helle from their cruel stepmother. Helle fell into the sea during the journey, while Phrixus reached Colchis safely and sacrificed the ram to Zeus, who honored its great deed by placing it among the stars as a symbol of courage and sacrifice.",
     },
     stars: [
-      [ 10.0,  68.8],
-      [ 23.3,  62.5],
-      [ 70.0,  63.7],
-      [ 90.0,  71.2],
-      [ 33.6,  37.3],
-      [ 35.9,  28.8],
-      [ 39.9,  35.6],
-      [ 75.3,  53.8],
-      [ 84.5,  52.8],
-      [ 88.5,  64.7],
+      [ 10.0,  25.3],
+      [ 69.4,  49.6],
+      [ 87.9,  65.3],
+      [ 90.0,  74.7],
     ],
-    lines: [[0,1], [1,2], [1,4], [2,3], [2,7], [4,5], [4,6], [5,6], [6,7], [7,8], [7,9], [8,9]],
-    labels: { 3:"Mesarthim", 7:"Hamal", 9:"Sheratan" },
+    lines: [[0,1], [1,2], [2,3]],
+    labels: { 0:"Bharani", 1:"Hamal", 2:"Sheratan", 3:"Mesarthim" },
   },
 
   // ── TAURUS ─── (modern) ──────────────────────────────────────
@@ -70,7 +64,7 @@ export const constellations = {
       [ 72.4,  37.9],
     ],
     lines: [[0,1], [1,2], [2,3], [2,10], [3,4], [3,9], [5,6], [5,7], [5,9], [6,10], [6,11], [7,8]],
-    labels: { 0:"Elnath", 2:"Ain", 3:"Aldebaran", 5:"Prima Hyadum", 11:"Atlas" },
+    labels: { 0:"Elnath", 2:"", 3:"Aldebaran", 5:"", 11:"Pleiades" }, //{ 0:"Elnath", 2:"Ain", 3:"Aldebaran", 5:"Prima Hyadum", 11:"Pleiades" },
   },
 
   // ── GEMINI ─── (Rey) ──────────────────────────────────────
@@ -107,7 +101,7 @@ export const constellations = {
     labels: { 0:"Alhena", 7:"Pollux", 11:"Castor", 13:"Mebsuta", 15:"Tejat" },
   },
 
-  // ── CANCER ─── (Rey) ──────────────────────────────────────
+  // ── CANCER ─── (modern) ──────────────────────────────────────
   "cancer": {
     th: {
       name: "กลุ่มดาวกรกฎ (Cancer)",
@@ -118,18 +112,18 @@ export const constellations = {
       text: "Cancer the Crab is a faint zodiac constellation for July, home to the Beehive Cluster M44 at its center. Coordinates: RA 8h 42m, Dec +20°. In Greek myth, Hera sent a giant crab to distract Hercules during his battle with the Hydra. Though crushed underfoot, Hera honored its loyalty by immortalizing it among the stars as a symbol of devotion and sacrifice.",
     },
     stars: [
-      [ 40.0,  10.0],
-      [ 42.8,  40.1],
-      [ 72.7,  55.2],
-      [ 69.5,  90.0],
-      [ 41.3,  53.5],
-      [ 27.3,  78.9],
+      [ 41.5,  10.0],
+      [ 44.4,  40.0],
+      [ 65.7,  16.2],
+      [ 42.9,  53.4],
+      [ 71.2,  90.0],
+      [ 28.8,  78.9],
     ],
-    lines: [[0,1], [1,2], [1,4], [2,3], [3,4], [4,5]],
-    labels: { 1:"Asellus Borealis", 3:"Altarf", 4:"Asellus Australis", 5:"Acubens" },
+    lines: [[0,1], [1,2], [1,3], [3,4], [3,5]],
+    labels: { 1:"Asellus Australis", 3:"Asellus Borealis", 4:"Altarf", 5:"Acubens" },
   },
 
-  // ── LEO ─── (Rey) ──────────────────────────────────────
+  // ── LEO ─── (modern) ──────────────────────────────────────
   "leo": {
     th: {
       name: "กลุ่มดาวสิงห์ (Leo)",
@@ -140,25 +134,18 @@ export const constellations = {
       text: "Leo the Lion is a zodiac constellation for August. Bright Regulus anchors the Sickle — a backward question mark forming the lion's mane. Coordinates: RA 10h 8m, Dec +12°. In Greek myth, the fearsome Nemean Lion was slain by Hercules as the first of his twelve labors. Zeus immortalized the mighty lion in the sky as a symbol of courage and royal power.",
     },
     stars: [
-      [ 10.0,  52.6],
-      [ 31.5,  40.2],
-      [ 30.7,  52.1],
-      [ 24.3,  63.3],
-      [ 25.3,  74.1],
-      [ 53.8,  66.8],
-      [ 67.8,  49.5],
-      [ 67.5,  60.5],
-      [ 83.4,  65.0],
-      [ 60.8,  42.6],
-      [ 37.9,  41.4],
-      [ 62.4,  34.4],
-      [ 74.9,  27.8],
-      [ 90.0,  25.9],
-      [ 86.7,  33.9],
-      [ 78.8,  32.7],
+      [ 10.0,  61.6],
+      [ 33.7,  60.5],
+      [ 77.3,  69.7],
+      [ 77.3,  56.5],
+      [ 68.6,  48.5],
+      [ 34.3,  46.6],
+      [ 70.3,  38.7],
+      [ 85.0,  30.3],
+      [ 90.0,  36.1],
     ],
-    lines: [[0,1], [1,2], [1,10], [2,3], [2,5], [2,6], [3,4], [6,7], [6,8], [6,9], [6,15], [9,10], [9,11], [11,12], [12,13], [12,15], [13,14], [14,15]],
-    labels: { 0:"Denebola", 1:"Zosma", 2:"Chertan", 7:"Regulus", 9:"Algieba" },
+    lines: [[0,1], [0,5], [1,2], [1,5], [2,3], [3,4], [4,5], [4,6], [6,7], [7,8]],
+    labels: { 0:"Denebola", 1:"Chertan", 3:"Regulus", 4:"Algieba", 5:"Zosma" },
   },
 
   // ── VIRGO ─── (modern) ──────────────────────────────────────
@@ -277,7 +264,7 @@ export const constellations = {
     labels: { 0:"Kaus Media", 1:"Kaus Borealis", 3:"Kaus Australis", 6:"Ascella", 10:"Nunki" },
   },
 
-  // ── CAPRICORNUS ─── (Rey) ──────────────────────────────────────
+  // ── CAPRICORNUS ─── (modern) ──────────────────────────────────────
   "capricornus": {
     th: {
       name: "กลุ่มดาวมกร (Capricornus)",
@@ -290,20 +277,16 @@ export const constellations = {
     stars: [
       [ 90.0,  24.0],
       [ 86.7,  32.3],
-      [ 46.5,  40.3],
-      [ 32.2,  39.1],
-      [ 16.4,  39.0],
-      [ 10.0,  37.3],
-      [ 27.2,  57.5],
-      [ 29.0,  59.6],
-      [ 47.9,  49.9],
-      [ 45.6,  68.8],
-      [ 79.0,  43.2],
-      [ 63.1,  70.0],
-      [ 58.3,  76.0],
+      [ 46.6,  40.4],
+      [ 32.3,  39.1],
+      [ 16.4,  39.1],
+      [ 10.0,  37.4],
+      [ 29.1,  59.7],
+      [ 63.2,  70.0],
+      [ 58.4,  76.0],
     ],
-    lines: [[0,1], [1,2], [1,10], [2,3], [2,7], [2,8], [3,4], [3,6], [4,5], [6,7], [8,9], [8,10], [10,11], [11,12]],
-    labels: { 0:"Algedi", 1:"Dabih", 4:"Nashira", 5:"Deneb Algedi" },
+    lines: [[0,1], [1,2], [1,7], [2,3], [2,6], [2,8], [3,4], [3,6], [4,5]],
+    labels: { 0:"Algedi", 1:"Dabih", 3:"Nashira", 5:"Deneb Algedi" },
   },
 
   // ── AQUARIUS ─── (modern) ──────────────────────────────────────
@@ -372,7 +355,7 @@ export const constellations = {
     labels: { 4:"Alpherg", 5:"Torcular", 6:"Alrescha" },
   },
 
-  // ── ORION ─── (Rey) ──────────────────────────────────────
+  // ── ORION ─── (modern) ──────────────────────────────────────
   "orion": {
     th: {
       name: "กลุ่มดาวนายพราน (Orion)",
@@ -383,32 +366,30 @@ export const constellations = {
       text: "Orion the Hunter is one of the most magnificent constellations in the sky. Betelgeuse marks the left shoulder, Rigel the right foot. Coordinates: RA 5h, Dec +5°. Three belt stars — Mintaka, Alnilam, Alnitak — form an unmistakable diagonal line. In Greek myth, Orion was a great hunter slain by Scorpius at Artemis's command. Zeus honored both by placing them on opposite sides of the sky so they can never meet.",
     },
     stars: [
-      [ 43.3,  68.9],
-      [ 46.3,  66.9],
-      [ 49.1,  64.5],
-      [ 29.0,  10.1],
-      [ 23.5,  26.0],
-      [ 26.3,  24.6],
+      [ 43.4,  69.0],
+      [ 46.4,  67.1],
+      [ 49.1,  64.7],
+      [ 23.4,  20.9],
+      [ 23.4,  26.2],
+      [ 28.9,  10.1],
       [ 35.0,  10.0],
-      [ 24.8,  24.4],
-      [ 29.5,  38.3],
-      [ 34.1,  44.3],
-      [ 38.5,  90.0],
+      [ 26.3,  24.8],
+      [ 29.5,  38.6],
+      [ 34.1,  44.5],
+      [ 38.6,  90.0],
       [ 60.7,  85.9],
-      [ 54.0,  70.1],
-      [ 53.5,  47.2],
-      [ 49.9,  48.2],
-      [ 47.1,  37.8],
-      [ 76.5,  45.3],
-      [ 75.7,  48.9],
-      [ 73.8,  57.3],
-      [ 71.0,  59.2],
-      [ 75.9,  40.2],
-      [ 73.0,  37.0],
-      [ 71.9,  28.1],
+      [ 53.6,  47.4],
+      [ 47.1,  38.0],
+      [ 76.6,  45.5],
+      [ 75.8,  49.1],
+      [ 74.4,  57.3],
+      [ 73.9,  57.5],
+      [ 71.0,  59.4],
+      [ 76.0,  40.4],
+      [ 73.1,  37.1],
     ],
-    lines: [[0,1], [0,9], [0,10], [1,2], [2,12], [2,13], [3,4], [3,6], [4,5], [5,6], [7,8], [8,9], [9,14], [11,12], [13,14], [13,16], [14,15], [16,17], [16,20], [17,18], [18,19], [20,21], [21,22]],
-    labels: { 0:"Alnitak", 1:"Alnilam", 9:"Betelgeuse", 11:"Rigel", 13:"Bellatrix" },
+    lines: [[0,1], [0,9], [0,10], [1,2], [2,11], [2,12], [3,4], [3,5], [4,7], [4,8], [5,6], [6,7], [7,8], [8,9], [9,13], [10,11], [12,13], [12,14], [14,15], [14,19], [15,16], [16,17], [17,18], [19,20]],
+    labels: { 0:"Alnitak", 1:"Alnilam", 2:"Mintaka", 9:"Betelgeuse", 10:"Saiph", 11:"Rigel", 12:"Bellatrix" },
   },
 
   // ── CANIS-MINOR ─── (Rey) ──────────────────────────────────────
@@ -454,7 +435,7 @@ export const constellations = {
     labels: { 1:"Arcturus", 2:"Izar", 4:"Nekkar", 5:"Seginus", 7:"Muphrid" },
   },
 
-  // ── AURIGA ─── (Rey) ──────────────────────────────────────
+  // ── AURIGA ─── (modern) ──────────────────────────────────────
   "auriga": {
     th: {
       name: "กลุ่มดาวสารถี (Auriga)",
@@ -465,20 +446,18 @@ export const constellations = {
       text: "Auriga the Charioteer commands his chariot across the sky. Brilliant Capella — a pair of giant stars — is one of the brightest in the night sky. Coordinates: RA 5h 16m, Dec +46°. The pentagon of Auriga is easy to spot in winter skies. In Greek myth, Auriga is linked to Hephaestus or a legendary king who invented the four-horse chariot, immortalized in the sky as a symbol of ingenuity and honor.",
     },
     stars: [
-      [ 74.1,  90.0],
-      [ 25.9,  74.3],
-      [ 29.0,  45.4],
-      [ 32.6,  10.0],
-      [ 57.2,  42.5],
-      [ 64.8,  60.0],
-      [ 67.3,  50.2],
-      [ 67.7,  60.4],
+      [ 20.7,  49.3],
+      [ 23.8,  13.8],
+      [ 58.6,  10.0],
+      [ 71.5,  32.0],
+      [ 79.3,  67.8],
+      [ 51.3,  90.0],
     ],
-    lines: [[0,1], [0,5], [1,2], [2,3], [2,4], [3,4], [4,5], [4,6], [5,7], [6,7]],
-    labels: { 0:"Hassaleh", 1:"Mahasim", 2:"Menkalinan", 4:"Capella" },
+    lines: [[0,1], [0,5], [1,2], [2,3], [3,4], [4,5]],
+    labels: { 0:"Mahasim", 1:"Menkalinan", 2:"Capella", 4:"Hassaleh" },
   },
 
-  // ── CASSIOPEIA ─── (Rey) ──────────────────────────────────────
+  // ── CASSIOPEIA ─── (modern) ──────────────────────────────────────
   "cassiopeia": {
     th: {
       name: "กลุ่มดาวค้างคาว (Cassiopeia)",
@@ -489,15 +468,14 @@ export const constellations = {
       text: "Cassiopeia's five stars form a clear W or M shape near the north pole, visible year-round from the northern hemisphere. In Greek myth, Queen Cassiopeia boasted that she and her daughter surpassed the beauty of the sea nymphs, enraging Poseidon. As punishment, she was bound to a throne that endlessly circles the celestial pole — sometimes upside down — an eternal reminder of the dangers of arrogance.",
     },
     stars: [
-      [ 22.4,  10.0],
-      [ 18.6,  54.0],
-      [ 33.3,  72.6],
-      [ 51.0,  70.2],
-      [ 63.2,  90.0],
-      [ 81.4,  73.6],
+      [ 10.0,  25.7],
+      [ 28.1,  50.6],
+      [ 51.1,  48.3],
+      [ 65.8,  74.3],
+      [ 90.0,  54.1],
     ],
-    lines: [[0,1], [1,2], [2,3], [3,4], [4,5]],
-    labels: { 1:"Segin", 2:"Ruchbah", 4:"Schedar", 5:"Caph" },
+    lines: [[0,1], [1,2], [2,3], [3,4]],
+    labels: { 0:"Segin", 1:"Ruchbah", 3:"Schedar", 4:"Caph" },
   },
 
   // ── URSA-MINOR ─── (Rey) ──────────────────────────────────────
@@ -523,7 +501,7 @@ export const constellations = {
     labels: { 0:"Polaris", 1:"Yildun", 5:"Pherkad", 6:"Kochab" },
   },
 
-  // ── URSA-MAJOR ─── (Rey) ──────────────────────────────────────
+  // ── URSA-MAJOR ─── (modern) ──────────────────────────────────────
   "ursa-major": {
     th: {
       name: "กลุ่มดาวหมีใหญ่ (Ursa Major)",
@@ -534,31 +512,30 @@ export const constellations = {
       text: "Ursa Major the Great Bear contains the famous Big Dipper — seven stars forming a bowl and curved handle. Dubhe is its brightest star. Coordinates: RA 11h, Dec +56°. Pointer stars Dubhe and Merak aim directly at Polaris. In myth, Callisto was transformed into a bear by Hera; Zeus placed her in the sky to protect her from harm.",
     },
     stars: [
-      [ 10.0,  34.8],
-      [ 21.8,  29.8],
-      [ 29.7,  31.8],
-      [ 39.2,  33.3],
-      [ 55.7,  27.9],
-      [ 55.9,  37.0],
-      [ 43.1,  40.1],
-      [ 73.4,  22.8],
-      [ 87.0,  20.9],
-      [ 90.0,  44.4],
-      [ 89.3,  46.3],
-      [ 67.9,  61.2],
-      [ 69.2,  58.6],
-      [ 78.7,  41.7],
-      [ 71.2,  30.7],
-      [ 49.1,  79.1],
-      [ 49.2,  76.3],
-      [ 53.2,  56.6],
-      [ 43.3,  50.2],
+      [ 10.0,  46.6],
+      [ 21.3,  41.2],
+      [ 29.1,  42.8],
+      [ 38.5,  43.9],
+      [ 54.6,  37.8],
+      [ 55.2,  46.8],
+      [ 42.5,  50.4],
+      [ 43.2,  60.5],
+      [ 53.3,  66.6],
+      [ 69.5,  68.0],
+      [ 68.3,  70.7],
+      [ 72.3,  48.1],
+      [ 78.3,  50.5],
+      [ 89.4,  54.7],
+      [ 90.0,  52.8],
+      [ 70.2,  39.9],
+      [ 85.7,  29.3],
+      [ 72.1,  31.9],
     ],
-    lines: [[0,1], [0,18], [1,2], [2,3], [3,4], [3,6], [4,5], [4,7], [5,6], [7,8], [7,14], [8,9], [9,10], [10,11], [11,15], [12,13], [13,14], [16,17], [17,18]],
-    labels: { 0:"Alkaid", 1:"Mizar", 2:"Alioth", 4:"Dubhe", 5:"Merak" },
+    lines: [[0,1], [1,2], [2,3], [3,4], [3,6], [4,5], [4,17], [5,6], [5,11], [6,7], [7,8], [8,9], [8,10], [11,12], [11,15], [12,13], [12,14], [15,16], [16,17]],
+    labels: { 0:"Alkaid", 1:"Mizar", 2:"Alioth", 3:"Megrez", 4:"Dubhe", 5:"Merak", 6:"Phecda" },
   },
 
-  // ── LYRA ─── (Rey) ──────────────────────────────────────
+  // ── LYRA ─── (modern) ──────────────────────────────────────
   "lyra": {
     th: {
       name: "กลุ่มดาวพิณ (Lyra)",
@@ -569,22 +546,17 @@ export const constellations = {
       text: "Lyra the Lyre is the harp of the legendary Orpheus. Brilliant Vega — fifth brightest star in the sky — anchors the Summer Triangle with Deneb and Altair. Coordinates: RA 18h 37m, Dec +38°. In Greek myth, Orpheus played so beautifully that even rocks wept. After his death, Zeus honored him by placing his lyre among the stars.",
     },
     stars: [
-      [ 64.7,  46.4],
-      [ 54.3,  40.9],
-      [ 39.7,  10.1],
-      [ 14.1,  43.3],
-      [ 10.0,  50.3],
-      [ 33.5,  89.9],
-      [ 46.7,  85.2],
-      [ 90.0,  64.2],
-      [ 40.4,  60.1],
-      [ 54.1,  55.1],
+      [ 79.3,  10.0],
+      [ 59.4,  25.9],
+      [ 45.3,  81.5],
+      [ 20.7,  90.0],
+      [ 33.9,  35.0],
     ],
-    lines: [[0,1], [0,7], [1,2], [2,3], [3,4], [4,5], [5,6], [5,8], [6,7], [6,9]],
-    labels: { 0:"Vega", 5:"Sulafat", 6:"Sheliak" },
+    lines: [[0,1], [1,2], [1,4], [2,3], [3,4]],
+    labels: { 0:"Vega", 2:"Sheliak", 3:"Sulafat" },
   },
 
-  // ── AQUILA ─── (Rey) ──────────────────────────────────────
+  // ── AQUILA ─── (modern) ──────────────────────────────────────
   "aquila": {
     th: {
       name: "กลุ่มดาวนกอินทรี (Aquila)",
@@ -595,23 +567,21 @@ export const constellations = {
       text: "Aquila the Eagle soars along the Milky Way with brilliant Altair at its center. Altair rotates so fast it is visibly flattened at its poles. Coordinates: RA 19h 51m, Dec +8°. Altair forms one corner of the Summer Triangle with Vega and Deneb. In Greek myth, Aquila is Zeus's great eagle — tasked with carrying thunderbolts and bringing the beautiful Ganymede up to Olympus to serve the gods.",
     },
     stars: [
-      [ 31.8,  43.4],
-      [ 36.2,  34.2],
-      [ 40.5,  27.6],
-      [ 51.8,  39.9],
-      [ 59.9,  56.0],
-      [ 34.4,  63.9],
-      [ 16.2,  70.9],
-      [ 78.5,  14.9],
-      [ 83.8,  10.0],
-      [ 78.4,  86.6],
-      [ 82.8,  90.0],
+      [ 31.0,  45.0],
+      [ 35.5,  35.4],
+      [ 40.0,  28.5],
+      [ 60.2,  58.0],
+      [ 33.7,  66.3],
+      [ 14.8,  73.6],
+      [ 79.6,  15.1],
+      [ 85.2,  10.0],
+      [ 79.6,  90.0],
     ],
-    lines: [[0,1], [1,2], [2,3], [3,4], [4,5], [4,7], [4,9], [5,6], [7,8], [9,10]],
+    lines: [[0,1], [1,2], [1,3], [3,4], [3,6], [3,8], [4,5], [6,7]],
     labels: { 0:"Alshain", 1:"Altair", 2:"Tarazed" },
   },
 
-  // ── CYGNUS ─── (Rey) ──────────────────────────────────────
+  // ── CYGNUS ─── (modern) ──────────────────────────────────────
   "cygnus": {
     th: {
       name: "กลุ่มดาวหงส์ (Cygnus)",
@@ -622,24 +592,19 @@ export const constellations = {
       text: "Cygnus the Swan flies along the Milky Way, its Northern Cross shape unmistakable. Deneb — 2,600 light-years away — is one of the most luminous stars known. Coordinates: RA 20h 41m, Dec +42°. In myth, devoted Cygnus transformed into a swan to search the river for his fallen friend Phaethon. The gods honored this friendship by placing him among the stars as a symbol of love and loyalty.",
     },
     stars: [
-      [ 79.7,  10.0],
-      [ 69.3,  38.1],
-      [ 49.2,  54.0],
-      [ 38.9,  38.5],
-      [ 25.8,  41.4],
-      [ 52.7,  31.3],
-      [ 74.5,  16.5],
-      [ 34.0,  72.7],
-      [ 15.2,  82.8],
-      [ 29.2,  50.3],
-      [ 16.6,  54.1],
-      [ 17.6,  58.5],
-      [ 65.4,  69.3],
-      [ 77.9,  83.6],
-      [ 84.8,  90.0],
+      [ 83.7,  15.3],
+      [ 79.3,  21.0],
+      [ 75.3,  39.9],
+      [ 58.2,  54.1],
+      [ 49.0,  40.9],
+      [ 45.5,  70.6],
+      [ 29.5,  79.6],
+      [ 10.0,  81.3],
+      [ 72.6,  67.0],
+      [ 90.0,  84.7],
     ],
-    lines: [[0,1], [0,6], [1,2], [2,3], [2,7], [2,12], [3,4], [3,5], [3,9], [5,6], [7,8], [8,9], [9,10], [10,11], [12,13], [13,14]],
-    labels: { 2:"Sadr", 3:"Deneb", 14:"Albereo" },
+    lines: [[0,1], [1,2], [2,3], [3,4], [3,5], [3,8], [5,6], [6,7], [8,9]],
+    labels: { 3:"Sadr", 4:"Deneb", 9:"Albireo" },
   },
 
   // ── CANIS-MAJOR ─── (Rey) ──────────────────────────────────────
