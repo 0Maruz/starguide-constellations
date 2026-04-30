@@ -2,8 +2,8 @@ import { useRef, useState, useCallback, useEffect } from "react";
 import { constellations, VALID_STAR_IDS } from "./data/constellations";
 import { useStarfield } from "./hooks/useStarfield";
 import { useSpeech } from "./hooks/useSpeech";
-import ConstellationSVG from "./components/ConstellationSVG";
-import TapZone from "./components/TapZone";
+import ConstellationSlide from "./components/ConstellationSlide";
+import SwipeCarousel from "./components/SwipeCarousel";
 import LangToggle from "./components/LangToggle";
 import StarBadge from "./components/StarBadge";
 import Orb from "./components/Orb";
@@ -105,14 +105,23 @@ export default function App() {
   }, [stop]);
 
   const goPrev = useCallback(() => {
-    const newIdx = (currentIdx - 1 + STAR_IDS.length) % STAR_IDS.length;
-    goTo(STAR_IDS[newIdx]);
+    const len = STAR_IDS.length;
+    goTo(STAR_IDS[(currentIdx - 1 + len) % len]);
   }, [currentIdx, goTo]);
 
   const goNext = useCallback(() => {
-    const newIdx = (currentIdx + 1) % STAR_IDS.length;
-    goTo(STAR_IDS[newIdx]);
+    goTo(STAR_IDS[(currentIdx + 1) % STAR_IDS.length]);
   }, [currentIdx, goTo]);
+
+  const handleIndexChange = useCallback((newIdx) => {
+    const len = STAR_IDS.length;
+    const wrapped = ((newIdx % len) + len) % len;
+    goTo(STAR_IDS[wrapped]);
+  }, [goTo]);
+
+  const renderSlide = useCallback((id) => (
+    <ConstellationSlide entry={constellations[id]} />
+  ), []);
 
   const handleSingleTap = useCallback(() => {
     unlockAudio();
@@ -155,7 +164,14 @@ export default function App() {
       <div className="nebula nebula-3" />
       <div className="planet-deco" />
 
-      <ConstellationSVG entry={entry} />
+      <SwipeCarousel
+        items={STAR_IDS}
+        currentIndex={currentIdx}
+        onIndexChange={handleIndexChange}
+        onSingleTap={handleSingleTap}
+        onDoubleTap={handleDoubleTap}
+        renderItem={renderSlide}
+      />
 
       <StarBadge
         index={currentIdx + 1}
@@ -165,10 +181,18 @@ export default function App() {
         total={STAR_IDS.length}
       />
 
-      <button className="nav-btn nav-btn--prev" onClick={goPrev} aria-label={ui.prev}>
+      <button
+        className="nav-btn nav-btn--prev"
+        onClick={goPrev}
+        aria-label={ui.prev}
+      >
         &#8249;
       </button>
-      <button className="nav-btn nav-btn--next" onClick={goNext} aria-label={ui.next}>
+      <button
+        className="nav-btn nav-btn--next"
+        onClick={goNext}
+        aria-label={ui.next}
+      >
         &#8250;
       </button>
 
@@ -189,8 +213,6 @@ export default function App() {
           <p className={isPlaying ? "hint-speaking" : ""}>{hint}</p>
         </div>
       </div>
-
-      <TapZone onSingleTap={handleSingleTap} onDoubleTap={handleDoubleTap} />
     </>
   );
 }
