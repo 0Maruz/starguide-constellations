@@ -196,7 +196,7 @@ html, body, #root {
   height: 76px;
   display: flex; align-items: center; justify-content: center;
   z-index: 20; pointer-events: none;
-  padding: 0 96px 0 16px;
+  padding: 0 96px;
 }
 
 .speech-bar-inner {
@@ -420,7 +420,7 @@ html, body, #root {
   .star-badge    { height: 90px; padding: 0 80px; }
   .star-name     { font-size: clamp(22px, 3.2vw, 34px); }
   .star-name--en { font-size: clamp(18px, 2.8vw, 28px); }
-  .speech-bar    { height: 90px; padding-right: 116px; }
+  .speech-bar    { height: 90px; padding: 0 116px; }
   .lang-toggle   { bottom: 32px; right: 28px; }
   .orb-wrap      { bottom: 96px; width: 116px; height: 116px; }
   .orb           { width: 42px; height: 42px; }
@@ -448,7 +448,7 @@ html, body, #root {
   .star-name     { font-size: 14px; }
   .star-name--en { font-size: 12px; }
   .star-number   { display: none; }
-  .speech-bar    { height: 44px; padding-right: 108px; }
+  .speech-bar    { height: 44px; padding: 0 108px; }
   .speech-bar p  { font-size: 11px; }
   .lang-toggle   { bottom: 8px; right: 12px; }
   .orb-wrap      { display: none; }
