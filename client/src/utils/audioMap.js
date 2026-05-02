@@ -1,5 +1,5 @@
 export const audioMap = {
-  "intro":        new URL("../audio/Tutorial.wav",      import.meta.url).href,
+  "intro":        new URL("../audio/narration.wav",      import.meta.url).href,
   "aries":        new URL("../audio/Aries.wav",         import.meta.url).href,
   "taurus":       new URL("../audio/Taurus.wav",        import.meta.url).href,
   "gemini":       new URL("../audio/Gemini.wav",        import.meta.url).href,
