@@ -2,6 +2,7 @@ import { useRef, useState, useCallback, useEffect } from "react";
 import { constellations, VALID_STAR_IDS } from "./data/constellations";
 import { useStarfield } from "./hooks/useStarfield";
 import { useSpeech } from "./hooks/useSpeech";
+import { useVoiceGuide } from "./hooks/useVoiceGuide";
 import ConstellationSlide from "./components/ConstellationSlide";
 import SwipeCarousel from "./components/SwipeCarousel";
 import LangToggle from "./components/LangToggle";
@@ -9,6 +10,7 @@ import StarBadge from "./components/StarBadge";
 import Orb from "./components/Orb";
 import InfoModal from "./components/InfoModal";
 import StarSelector from "./components/StarSelector";
+import VoiceGuideToggle from "./components/VoiceGuideToggle";
 import "./App.css";
 
 const STAR_IDS = [
@@ -34,6 +36,7 @@ const UI_TEXT = {
     prev:    "ก่อนหน้า",
     next:    "ถัดไป",
     info:    "ดูรายละเอียด",
+    refresh: "รีเฟรชหน้า",
   },
   en: {
     label:   "Constellation",
@@ -44,6 +47,7 @@ const UI_TEXT = {
     prev:    "Previous",
     next:    "Next",
     info:    "View details",
+    refresh: "Refresh page",
   },
 };
 
@@ -58,7 +62,7 @@ export default function App() {
   const audioUnlockedRef = useRef(false);
   const hasPlayedIntro   = useRef(false);
 
-  const [lang, setLang]     = useState("th");
+  const [lang, setLang]     = useState("en");
   const [starId, setStarId] = useState(getInitialStarId);
   const [started, setStarted] = useState(false);
   const [flash, setFlash]   = useState(null);
@@ -67,6 +71,7 @@ export default function App() {
   useStarfield(canvasRef);
 
   const { speak, stop, isPlaying, isLoading, error, clearError } = useSpeech();
+  const { enabled: vgEnabled, setEnabled: setVgEnabled, announce } = useVoiceGuide();
 
   const entry      = constellations[starId];
   const ui         = UI_TEXT[lang];
@@ -86,6 +91,28 @@ export default function App() {
     url.searchParams.set("star", starId);
     window.history.replaceState(null, "", url.toString());
   }, [starId]);
+
+  // Voice guide: announce constellation when it changes (after user starts)
+  const prevStarIdRef = useRef(starId);
+  useEffect(() => {
+    if (prevStarIdRef.current === starId) return;
+    prevStarIdRef.current = starId;
+    if (!started) return;
+    const name = constellations[starId]?.en?.name;
+    if (name) announce(name);
+  }, [starId, started, announce]);
+
+  const handleLangChange = useCallback((newLang) => {
+    if (newLang === lang) return;
+    setLang(newLang);
+    announce(newLang === "th" ? "Thai" : "English");
+  }, [lang, announce]);
+
+  const openInfo = useCallback(() => {
+    stop();
+    setInfoOpen(true);
+    announce("Constellation info");
+  }, [stop, announce]);
 
   const triggerFlash = useCallback((type) => {
     setFlash(type);
@@ -203,17 +230,35 @@ export default function App() {
         setStarId={goTo}
         lang={lang}
         onClose={stop}
+        announce={announce}
       />
 
-      <LangToggle lang={lang} setLang={setLang} />
+      <div className="bottom-controls">
+        <VoiceGuideToggle
+          enabled={vgEnabled}
+          setEnabled={setVgEnabled}
+          lang={lang}
+          announce={announce}
+        />
+        <LangToggle lang={lang} setLang={handleLangChange} />
+      </div>
 
       <button
         className="info-btn"
-        onClick={() => { stop(); setInfoOpen(true); }}
+        onClick={openInfo}
         aria-label={ui.info}
         title={ui.info}
       >
         i
+      </button>
+
+      <button
+        className="refresh-btn"
+        onClick={() => window.location.reload()}
+        aria-label={ui.refresh}
+        title={ui.refresh}
+      >
+        ⟳
       </button>
 
       <InfoModal

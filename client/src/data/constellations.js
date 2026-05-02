@@ -201,11 +201,11 @@ export const constellations = {
       [ 56.9,   8.0],   // 0 β Lib — Zubeneschamali
       [ 89.6,  43.8],   // 1 α² Lib — Zubenelgenubi
       [ 33.2,  36.5],   // 2 γ Lib — Zubenelhakrabi
-      [ 29.4,  110.3],   // 3 θ Lib
+      [ 10.4,  45.3],   // 3 θ Lib
       [ 71.5,  92.0],   // 4 σ Lib
-      [ 30.9,  105.9],   // 5 ι Lib
+      [ 10.4,  45.3],   // 5 ι Lib
     ],
-    lines: [[0,1], [1,4], [0,2], [2,1], [2,5], [5,3]],
+    lines: [[0,1], [1,4], [0,2], [2,5], [5,3],[2,4]],
     labels: { 0:"Zubeneschamali", 1:"Zubenelgenubi", 2:"Zubenelhakrabi" },
   },
 
@@ -382,32 +382,32 @@ export const constellations = {
       text: "Orion the Hunter is one of the most magnificent constellations in the sky. Betelgeuse marks the left shoulder, Rigel the right foot. Coordinates: RA 5h, Dec +5°. Three belt stars — Mintaka, Alnilam, Alnitak — form an unmistakable diagonal line. In Greek myth, Orion was a great hunter slain by Scorpius at Artemis's command. Zeus honored both by placing them on opposite sides of the sky so they can never meet.",
     },
     stars: [
-      [ 43.3,  68.9],
-      [ 46.3,  66.9],
-      [ 49.1,  64.5],
+      [ 40.3,  68.9], //0
+      [ 45.3,  66.9],
+      [ 49.1,  64.5], // 2
       [ 29.0,  10.1],
-      [ 23.5,  26.0],
+      [ 23.5,  26.0], // 4
       [ 26.3,  24.6],
-      [ 35.0,  10.0],
-      [ 24.8,  24.4],
-      [ 29.5,  38.3],
+      [ 35.0,  10.0], //6
+      [ 23.5,  26.0],
+      [ 29.5,  38.3], // 8
       [ 34.1,  44.3],
-      [ 38.5,  90.0],
+      [ 38.5,  90.0], // 10
       [ 60.7,  85.9],
-      [ 54.0,  70.1],
+      [ 54.0,  70.1], // 12
       [ 53.5,  47.2],
-      [ 49.9,  48.2],
-      [ 47.1,  37.8],
-      [ 76.5,  45.3],
+      [ 47.1,  37.8], // 14
+      [ 47.1,  37.8], // head
+      [ 76.5,  45.3], // 16
       [ 75.7,  48.9],
-      [ 73.8,  57.3],
+      [ 73.8,  57.3], // 18
       [ 71.0,  59.2],
-      [ 75.9,  40.2],
+      [ 75.9,  40.2], //20
       [ 73.0,  37.0],
-      [ 71.9,  28.1],
+      [ 73.0,  37.0], //22
     ],
-    lines: [[0,1], [0,9], [0,10], [1,2], [2,12], [2,13], [3,4], [3,6], [4,5], [5,6], [7,8], [8,9], [9,14], [11,12], [13,14], [13,16], [14,15], [16,17], [16,20], [17,18], [18,19], [20,21], [21,22]],
-    labels: { 0:"Alnitak", 1:"Alnilam", 9:"Betelgeuse", 11:"Rigel", 13:"Bellatrix" },
+    lines: [[0,1], [0,9], [0,10], [1,2], [2,12], [2,13], [3,4], [4,5], [5,6], [7,8], [8,9], [9,14], [11,12], [13,14], [13,16], [14,15], [16,17], [16,20], [17,18], [18,19], [20,21], [21,22],[10,11]],
+    labels: { 9:"Betelgeuse", 11:"Rigel", 13:"Bellatrix" }, //0:"Alnitak", 1:"Alnilam",
   },
 
   // ── CANIS-MINOR ─── (Rey) ──────────────────────────────────────
@@ -488,14 +488,14 @@ export const constellations = {
       text: "Cassiopeia's five stars form a clear W or M shape near the north pole, visible year-round from the northern hemisphere. In Greek myth, Queen Cassiopeia boasted that she and her daughter surpassed the beauty of the sea nymphs, enraging Poseidon. As punishment, she was bound to a throne that endlessly circles the celestial pole — sometimes upside down — an eternal reminder of the dangers of arrogance.",
     },
     stars: [
-      [ 22.4,  10.0],
+      [ 51.0,  70.2],
       [ 18.6,  54.0],
       [ 33.3,  72.6],
       [ 51.0,  70.2],
       [ 63.2,  90.0],
       [ 81.4,  73.6],
     ],
-    lines: [[0,1], [1,2], [2,3], [3,4], [4,5]],
+    lines: [[1,2], [2,3], [3,4], [4,5]],
     labels: { 1:"Segin", 2:"Ruchbah", 4:"Schedar", 5:"Caph" },
   },
 
@@ -578,19 +578,19 @@ export const constellations = {
       text: "Aquila the Eagle soars along the Milky Way with brilliant Altair at its center. Altair rotates so fast it is visibly flattened at its poles. Coordinates: RA 19h 51m, Dec +8°. Altair forms one corner of the Summer Triangle with Vega and Deneb. In Greek myth, Aquila is Zeus's great eagle — tasked with carrying thunderbolts and bringing the beautiful Ganymede up to Olympus to serve the gods.",
     },
     stars: [
-      [ 31.8,  43.4],
-      [ 36.2,  34.2],
+      [ 32.8,  36.4],
       [ 40.5,  27.6],
-      [ 51.8,  39.9],
+      [ 50.5,  22.6],
+      [ 59.9,  56.0],
       [ 59.9,  56.0],
       [ 34.4,  63.9],
       [ 16.2,  70.9],
       [ 78.5,  14.9],
       [ 83.8,  10.0],
       [ 78.4,  86.6],
-      [ 82.8,  90.0],
+      [ 78.4,  86.6],
     ],
-    lines: [[0,1], [1,2], [2,3], [3,4], [4,5], [4,7], [4,9], [5,6], [7,8], [9,10]],
+    lines: [[0,1], [1,2], [1,4], [4,5], [4,7], [4,9], [5,6], [7,8], [9,10]],
     labels: { 0:"Alshain", 1:"Altair", 2:"Tarazed" },
   },
 

@@ -93,7 +93,7 @@ function ConstellationCard({ id, lang, active, onSelect }) {
   );
 }
 
-export default function StarSelector({ starId, setStarId, lang, onClose }) {
+export default function StarSelector({ starId, setStarId, lang, onClose, announce }) {
   const [open, setOpen] = useState(false);
   const sheetRef = useRef(null);
   const t = TEXT[lang] ?? TEXT.en;
@@ -102,6 +102,11 @@ export default function StarSelector({ starId, setStarId, lang, onClose }) {
     () => Object.keys(constellations).filter((id) => !ZODIAC_IDS.includes(id)),
     []
   );
+
+  const openSheet = () => {
+    setOpen(true);
+    announce?.(TEXT.en.title);
+  };
 
   const close = () => {
     setOpen(false);
@@ -131,7 +136,7 @@ export default function StarSelector({ starId, setStarId, lang, onClose }) {
       <button
         type="button"
         className="star-selector__trigger"
-        onClick={() => setOpen(true)}
+        onClick={openSheet}
         aria-label={t.title}
         title={t.title}
       >
