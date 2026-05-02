@@ -8,6 +8,7 @@ import LangToggle from "./components/LangToggle";
 import StarBadge from "./components/StarBadge";
 import Orb from "./components/Orb";
 import InfoModal from "./components/InfoModal";
+import StarSelector from "./components/StarSelector";
 import "./App.css";
 
 const STAR_IDS = [
@@ -20,7 +21,7 @@ const STAR_IDS = [
 
 const INTRO = {
   th: "สวัสดีครับ นี่คือคู่มือการ์ดสอนกลุ่มดาวสำหรับผู้พิการทางสายตา ใช้นิ้วสัมผัสพื้นผิวนูนบนการ์ดเพื่อรับรู้ตำแหน่งของดวงดาว กดปุ่มซ้ายหรือขวาเพื่อเปลี่ยนกลุ่มดาว กดสองครั้งบนหน้าจอเพื่อฟังคำบรรยายกลุ่มดาว",
-  en: "Welcome to the Constellation Guide — designed for visually impaired learners. Touch the raised card surface to feel the star positions. Use the arrow buttons to navigate between the 24 constellations. Double-tap the screen to hear the constellation description.",
+  en: "Please double tap to hear the description.",
 };
 
 const UI_TEXT = {
@@ -178,11 +179,8 @@ export default function App() {
       />
 
       <StarBadge
-        index={currentIdx + 1}
         name={entry?.[lang]?.name ?? (lang === "th" ? "ไม่พบข้อมูล" : "Not found")}
-        label={ui.label}
         lang={lang}
-        total={STAR_IDS.length}
       />
 
       <button
@@ -199,6 +197,13 @@ export default function App() {
       >
         &#8250;
       </button>
+
+      <StarSelector
+        starId={starId}
+        setStarId={goTo}
+        lang={lang}
+        onClose={stop}
+      />
 
       <LangToggle lang={lang} setLang={setLang} />
 
@@ -217,8 +222,6 @@ export default function App() {
         id={starId}
         lang={lang}
       />
-
-      <div className="app-footer">Developed by 0Maruz</div>
 
       {error && (
         <div role="alert" onClick={clearError} className="error-toast">

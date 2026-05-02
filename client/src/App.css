@@ -93,13 +93,6 @@ html, body, #root {
   padding: 0 72px;
 }
 
-.star-number {
-  font-family: 'Orbitron', monospace;
-  font-size: clamp(8px, 1.8vw, 11px);
-  letter-spacing: 0.22em; text-transform: uppercase;
-  color: rgba(0,229,255,0.45); margin-bottom: 4px;
-}
-
 .star-name {
   font-size: clamp(17px, 5vw, 26px);
   font-weight: 600;
@@ -447,7 +440,6 @@ html, body, #root {
   .star-badge    { height: 50px; padding: 0 56px; }
   .star-name     { font-size: 14px; }
   .star-name--en { font-size: 12px; }
-  .star-number   { display: none; }
   .speech-bar    { height: 44px; padding: 0 108px; }
   .speech-bar p  { font-size: 11px; }
   .lang-toggle   { bottom: 8px; right: 12px; }
@@ -455,7 +447,6 @@ html, body, #root {
   .planet-deco   { display: none; }
   .nebula        { display: none; }
   .nav-btn       { height: 48px; width: 34px; }
-  .app-footer    { display: none; }
   .info-btn      { bottom: 8px; left: 12px; width: 32px; height: 32px; font-size: 14px; }
 }
 
@@ -490,20 +481,6 @@ html, body, #root {
   .info-btn { bottom: 32px; left: 28px; width: 46px; height: 46px; font-size: 19px; }
 }
 
-.app-footer {
-  position: fixed;
-  bottom: 6px; left: 50%;
-  transform: translateX(-50%);
-  font-size: 10px;
-  letter-spacing: 0.04em;
-  color: rgba(180,210,255,0.45);
-  pointer-events: none;
-  z-index: 5;
-  white-space: nowrap;
-}
-@media (min-width: 768px) {
-  .app-footer { font-size: 11px; bottom: 8px; }
-}
 
 .info-modal {
   position: fixed;
