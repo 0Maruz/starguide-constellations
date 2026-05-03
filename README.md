@@ -26,11 +26,13 @@ starguide/
 │   │   │   ├── StarBadge.jsx            ← ป้ายชื่อกลุ่มดาวด้านบน
 │   │   │   ├── StarSelector.jsx/.css    ← bottom sheet เลือกกลุ่มดาว
 │   │   │   ├── LangToggle.jsx           ← ปุ่ม TH/EN
+│   │   │   ├── VoiceGuideToggle.jsx     ← ปุ่ม 🔈/🔊 เปิด-ปิดเสียงนำทาง UI
 │   │   │   ├── Orb.jsx                  ← ลูกออร์บแสดงสถานะเสียง
 │   │   │   └── InfoModal.jsx            ← modal "i" ข้อมูลอ้างอิง
 │   │   ├── hooks/
 │   │   │   ├── useStarfield.js          ← canvas animated star background
 │   │   │   ├── useSpeech.js             ← เล่นเสียง (WAV ไทย / Web Speech อังกฤษ)
+│   │   │   ├── useVoiceGuide.js         ← state + Web Speech announce สำหรับเสียงนำ UI (จำค่าใน localStorage)
 │   │   │   └── useReference.js          ← โหลด HTML อ้างอิงสำหรับ InfoModal
 │   │   ├── data/constellations.js       ← ข้อมูลดาว 24 กลุ่ม (slug ID)
 │   │   ├── audio/                       ← ไฟล์ .wav เสียงบรรยายไทย
@@ -127,6 +129,8 @@ slug ที่ใช้ได้: `aquarius`, `aquila`, `aries`, `auriga`, `boot
 | ปุ่มลูกศร ‹ ›  หรือ Arrow keys     | เปลี่ยนกลุ่มดาว                        |
 | ปุ่ม **☆** มุมขวาบน               | เปิด bottom sheet เลือกกลุ่มดาวจาก grid |
 | ปุ่ม **i** มุมซ้ายล่าง            | เปิด modal ข้อมูลอ้างอิงรายละเอียด     |
+| ปุ่ม **⟳** มุมซ้ายล่าง            | รีเฟรชหน้า                            |
+| ปุ่ม **🔈 / 🔊** มุมขวาล่าง       | เปิด-ปิดเสียงนำทาง UI (Web Speech, EN) |
 | ปุ่ม **TH / EN** มุมขวาล่าง       | สลับภาษา (เปลี่ยนทั้ง UI และเสียง)     |
 
 ---
