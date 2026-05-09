@@ -92,15 +92,14 @@ export default function App() {
     window.history.replaceState(null, "", url.toString());
   }, [starId]);
 
-  // Voice guide: announce constellation when it changes (after user starts)
+  // Voice guide: announce constellation name whenever it changes
   const prevStarIdRef = useRef(starId);
   useEffect(() => {
     if (prevStarIdRef.current === starId) return;
     prevStarIdRef.current = starId;
-    if (!started) return;
     const name = constellations[starId]?.en?.name;
     if (name) announce(name);
-  }, [starId, started, announce]);
+  }, [starId, announce]);
 
   const handleLangChange = useCallback((newLang) => {
     if (newLang === lang) return;
