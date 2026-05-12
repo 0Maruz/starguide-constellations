@@ -67,6 +67,10 @@ starguide/
 cd starguide
 npm run install:all          # ติดตั้ง dep ทั้ง client/ และ server/
 npm run dev                  # client :5173, server :3000 พร้อมกัน
+
+for window
+cmd /c "npm run install:all"
+cmd /c "npm run dev --prefix client"
 ```
 
 เปิด http://localhost:5173
