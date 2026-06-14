@@ -67,6 +67,7 @@ starguide/
 cd starguide
 npm run install:all          # ติดตั้ง dep ทั้ง client/ และ server/
 npm run dev                  # client :5173, server :3000 พร้อมกัน
+npm run dev --prefix client -- --host #ได้ ip port
 ```
 
 เปิด http://localhost:5173
