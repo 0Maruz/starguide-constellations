@@ -69,14 +69,13 @@ for linux cli
 cd starguide
 npm run install:all          # ติดตั้ง dep ทั้ง client/ และ server/
 npm run dev                  # client :5173, server :3000 พร้อมกัน
-<<<<<<< HEAD
 npm run dev --prefix client -- --host #ได้ ip port
 =======
 
 for windows
 cmd /c "npm run install:all"
 cmd /c "npm run dev --prefix client"
->>>>>>> 008eef213785282f8d74116b3020c8b8195ca30e
+>>>>>>>
 ```
 
 เปิด http://localhost:5173
