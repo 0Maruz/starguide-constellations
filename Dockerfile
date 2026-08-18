@@ -3,7 +3,9 @@ FROM node:20-alpine AS client-build
 WORKDIR /app/client
 
 COPY client/package*.json ./
-RUN npm ci --silent
+# Keep install failures visible in remote build logs. Auditing belongs in CI,
+# not in the image build, where an advisory-service failure breaks deployment.
+RUN npm ci --no-audit --no-fund
 
 COPY client/ ./
 RUN npm run build
@@ -17,7 +19,7 @@ RUN addgroup -S appgroup && adduser -S appuser -G appgroup
 
 # Install only server dependencies
 COPY server/package*.json ./server/
-RUN cd server && npm ci --omit=dev --silent
+RUN cd server && npm ci --omit=dev --no-audit --no-fund
 
 COPY server/ ./server/
 
