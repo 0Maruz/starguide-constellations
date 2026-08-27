@@ -62,7 +62,7 @@ export default function App() {
   const audioUnlockedRef = useRef(false);
   const hasPlayedIntro   = useRef(false);
 
-  const [lang, setLang]     = useState("en");
+  const [lang, setLang]     = useState("th");
   const [starId, setStarId] = useState(getInitialStarId);
   const [started, setStarted] = useState(false);
   const [flash, setFlash]   = useState(null);
